@@ -1,6 +1,6 @@
 export default function DowntimeIcon() {
   return (
-    <svg  className="w-20 h-20 opacity-75" id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
+    <svg  className="w-20 h-20 opacity-75" id="Capa_1" enableBackground="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
       <g>
         <path d="m197.398 236.516v15h16.645l1.922-15z" fill="#acacac"/>
       <g>
