@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Layout from '~/layout/default'
+import SideBar from '~/components/SideBar'
 
 export default function WelcomePage() {
   return (
@@ -8,8 +9,13 @@ export default function WelcomePage() {
         <title>ICTMR</title>
       </Head>
       <Layout>
-        <div className="flex flex-row items-center justify-center w-full h-full">
-          <h1 className="font-black text-5xl">ICTMR</h1>
+        <div className="flex flex-row justify-between w-full h-full">
+          <div className="flex flex-row w-full max-w-[4rem] h-full">
+            <SideBar />
+          </div>
+          <div className="flex flex-row justify-center w-full max-w-full h-full">
+            <h1>This is The Whole Page</h1>
+          </div>
         </div>
       </Layout>
     </>
