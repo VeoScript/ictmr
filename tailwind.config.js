@@ -10,13 +10,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'drip-black': '#222',
-        'drip-heaven': '#FBFBFB',
-        'drip-mystery': '#020F14',
-        'drip-night': '#112430',
-        'drip-cerulean': '#037AC8',
-        'drip-sky': '#4BAAD9',
-        'drip-slate': '#1E3649',
+        'bright-white': '#F4F9FF',   //PANTONE 11-0601 TCX
+        'panther': '#25282A',        //PANTONE 426 C
+        'light-panther': '#2F3438',
+        'cool-gray': '#888B8D',      //PANTONE COOL GRAY 8 C
+        'cerulean': '#00A3E1',       //PANTONE 2191 C
+        'scarlet': '#F8485E'         //PANTONE 1785 C
       },
       fontFamily: {
         poppins: ['Poppins', ...defaultTheme.fontFamily.serif]
