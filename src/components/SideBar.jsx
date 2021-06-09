@@ -5,7 +5,7 @@ import { menu } from '~/static/links'
 export default function SideBar() {
   const router = useRouter()
   return (
-    <div className="flex flex-col items-center w-full h-full bg-light-panther">
+    <div className="flex flex-col w-full h-full overflow-y-auto bg-light-panther">
       <div className="flex flex-row justify-center items-center w-full h-20">
         <Link href="/">
           <a className="transition ease-in-out duration-300 transform hover:scale-90">
