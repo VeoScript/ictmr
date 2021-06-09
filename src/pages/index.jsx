@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Layout from '~/layout/default'
 import SideBar from '~/components/SideBar'
 import ComputerIcon from '~/components/icons/ComputerIcon'
@@ -13,7 +14,7 @@ export default function WelcomePage() {
       </Head>
       <Layout>
         <div className="flex flex-row justify-between w-full h-full">
-          <div className="flex flex-row w-full max-w-[4rem] h-full">
+          <div className="flex flex-col w-full max-w-[4rem]">
             <SideBar />
           </div>
           <div className="flex flex-col items-center w-full max-w-full h-full">
@@ -31,15 +32,17 @@ export default function WelcomePage() {
                 <h6 className="font-light text-base">ICT-MR Monitor your odyssey</h6>
               </div>
               <div className="flex flex-col w-full max-w-sm space-y-2 px-10">
-                <div className="flex flex-col w-full rounded-xl px-5 py-3 bg-light-panther">
-                  <div className="flex flex-row items-center w-full space-x-3">
-                    <img className="w-8 h-8 object-cover rounded-full" src="https://avatars.githubusercontent.com/u/26340308?v=4" alt="avatar" />
-                    <div className="flex flex-col w-full">
-                      <h1 className="font-normal text-base">Jerome Villaruel</h1>
-                      <h6 className="font-thin text-xs">SPMI IT-Coordinator</h6>
+                <Link href="/">
+                  <a className="flex flex-col w-full rounded-xl px-5 py-3 bg-light-panther transition ease-in-out duration-300 transform hover:scale-95">
+                    <div className="flex flex-row items-center w-full space-x-3">
+                      <img className="w-10 h-10 object-cover rounded-full" src="https://avatars.githubusercontent.com/u/26340308?v=4" alt="avatar" />
+                      <div className="flex flex-col w-full">
+                        <h1 className="font-normal text-base">Jerome Villaruel</h1>
+                        <h6 className="font-thin text-xs">SPMI IT-Coordinator</h6>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </a>
+                </Link>
               </div>
             </div>
             <div className="flex flex-row w-full h-full px-10 py-10">
@@ -51,7 +54,7 @@ export default function WelcomePage() {
                     <h1 className="font-light text-xs">How many computers as of now?</h1>
                    </div>
                    <div className="flex flex-col justify-center w-full px-16 py-3">
-                    <h1 className="font-bold text-7xl text-cerulean">22</h1>
+                    <h1 className="font-bold text-7xl text-scarlet">22</h1>
                    </div>
                     <div className="absolute h-0 bottom-0 right-5 bg-cerulean">
                       <ComputerIcon />
@@ -65,7 +68,7 @@ export default function WelcomePage() {
                     <h1 className="font-light text-xs">How many notes do you have?</h1>
                    </div>
                    <div className="flex flex-col justify-center w-full px-16 py-3">
-                    <h1 className="font-bold text-7xl text-cerulean">5</h1>
+                    <h1 className="font-bold text-7xl text-scarlet">5</h1>
                    </div>
                     <div className="absolute h-0 bottom-0 right-5 bg-cerulean">
                       <NotebookIcon />
