@@ -1,6 +1,6 @@
 export default function NotebookIcon() {
   return (
-    <svg className="w-20 h-20 opacity-75" id="Capa_1" enable-background="new 0 0 497 497" height="512" viewBox="0 0 497 497" width="512" xmlns="http://www.w3.org/2000/svg">
+    <svg className="w-20 h-20 opacity-75" id="Capa_1" enableBackground="new 0 0 497 497" height="512" viewBox="0 0 497 497" width="512" xmlns="http://www.w3.org/2000/svg">
       <g>
         <path d="m429.5 261.333-30 42.833 30 42.833h22.5c4.142 0 7.5-3.358 7.5-7.5v-70.667c0-4.142-3.358-7.5-7.5-7.5h-22.5z" fill="#ff5a47"/>
         <path d="m369.5 261.333h60v85.667h-60z" fill="#fe8047"/>

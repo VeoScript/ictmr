@@ -1,6 +1,6 @@
 export default function ComputerIcon() {
   return (
-    <svg className="w-20 h-20 opacity-75" id="Capa_1" enable-background="new 0 0 497 497" height="512" viewBox="0 0 497 497" width="512" xmlns="http://www.w3.org/2000/svg">
+    <svg className="w-20 h-20 opacity-75" id="Capa_1" enableBackground="new 0 0 497 497" height="512" viewBox="0 0 497 497" width="512" xmlns="http://www.w3.org/2000/svg">
       <g>
         <path d="m275.57 401-84.14 30-3.19 11.15c-4.53 15.87-21.74 28.85-38.24 28.85v7.5h174.5z" fill="#adaca7"/>
         <path d="m308.76 442.15-11.76-41.15-48.5-30-48.5 30-8.57 30h84.14l3.19 11.15c4.53 15.87 21.74 28.85 38.24 28.85l15 7.5 15-7.5c-16.5 0-33.71-12.98-38.24-28.85z" fill="#8f8f8b"/>
