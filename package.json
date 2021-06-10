@@ -15,7 +15,6 @@
     "postcss": "^8.3.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-tooltip": "^4.2.21",
     "tailwindcss": "^2.1.4"
   }
 }
