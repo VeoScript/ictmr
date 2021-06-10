@@ -13,6 +13,13 @@ export default function CreateReportAlbum() {
     router.replace(router.asPath)
   }
 
+  async function onCreate(formData) {
+    console.log(formData)
+    reset()
+    closeModal()
+    refreshData()
+  }
+
   let [isOpen, setIsOpen] = useState(false)
 
   function closeModal() {
@@ -30,16 +37,16 @@ export default function CreateReportAlbum() {
         <button
           type="button"
           onClick={openModal}
-          className="px-5 py-2 bg-drip-cerulean rounded-lg text-sm transition ease-in-out duration-200 transform hover:scale-95 focus:outline-none"
+          className="px-8 py-4 bg-scarlet rounded-full text-lg transition ease-in-out duration-200 transform hover:scale-95 focus:outline-none"
         >
-          Create New Album
+          Create Album
         </button>
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 z-50 bg-drip-night bg-opacity-50 overflow-y-auto"
+          className="fixed inset-0 z-50 bg-light-panther bg-opacity-80 overflow-y-auto"
           onClose={closeModal}
         >
           <div className="min-h-screen px-4 text-center">
@@ -71,36 +78,95 @@ export default function CreateReportAlbum() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-lg p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-drip-night shadow-xl rounded-2xl">
+              <div className="inline-block w-full max-w-lg p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-panther border-2 border-cerulean shadow-xl rounded-2xl">
                 <div className="flex flex-row items-center justify-center w-full">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-medium leading-6 text-drip-heaven"
+                    className="text-lg font-medium leading-6 text-bright-white"
                   >
-                    Create Report Album
+                    New Report Album
                   </Dialog.Title>
                 </div>
-                <form className="flex flex-col w-full mt-5 space-y-2">
-                  <div className="flex flex-col w-full space-y-1.5">
+                <form onSubmit={handleSubmit(onCreate)} className="flex flex-col w-full mt-5 space-y-1.5">
+                  <div className="flex flex-col w-full space-y-2">
                     <div className="form-control">
-                      <div className="searchbox flex flex-row items-center w-full max-w-sm mt-5 bg-light-panther rounded-full">
+                      <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
                         <input
-                          className="w-full px-5 py-3 bg-light-panther rounded-full focus:outline-none"
+                          className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none"
                           type="text"
                           name="title"
                           {...register("title", { required: true })}
-                          placeholder="Create Name"
+                          placeholder="Create Title"
                         />
                         <svg className="w-6 h-6 text-gray-400 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
                         </svg>
                       </div>
-                      { errors.title && <span className="font-medium text-xs tracking-wide text-yellow-600 mx-1">Album title is required.</span> }
+                      { errors.title && <span className="font-medium text-xs tracking-wide text-bright-white mx-5">Album title is required.</span> }
                     </div>
                     <div className="form-control">
+                      <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
+                        <input
+                          className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none"
+                          type="text"
+                          name="description"
+                          {...register("description", { required: true })}
+                          placeholder="Description"
+                        />
+                        <svg className="w-6 h-6 text-gray-400 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                      </div>
+                      { errors.description && <span className="font-medium text-xs tracking-wide text-bright-white mx-5">Description is required.</span> }
+                    </div>
+                    <div className="flex flex-row items-center w-full space-x-1.5">
+                      <div className="form-control">
+                        <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
+                          <input
+                            className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none"
+                            type="text"
+                            name="year"
+                            {...register("year", { required: true })}
+                            placeholder="Year"
+                          />
+                          <svg className="w-6 h-6 text-gray-400 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="form-control">
+                        <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
+                          <input
+                            className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none"
+                            type="text"
+                            name="slug"
+                            {...register("slug", { required: true })}
+                            placeholder="Slug"
+                          />
+                          <svg className="w-6 h-6 text-gray-400 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-row justify-between items-center w-full">
+                      <div className="w-full text-left -mt-2.5">
+                        { errors.year && <span className="font-medium text-xs tracking-wide text-bright-white mx-5">Year is required.</span> }
+                      </div>
+                      <div className="w-full text-left -mt-2.5">
+                        { errors.slug && <span className="font-medium text-xs tracking-wide text-bright-white mx-5">Slug is required.</span> }
+                      </div>
+                    </div>
+                    <div className="form-control flex flex-row justify-end items-center w-full space-x-1.5">
+                      <button
+                        type="submit"
+                        className="w-full max-w-[5rem] bg-cerulean text-bright-white text-sm text-center py-3 rounded-full transition ease-in-out duration-300 transform hover:bg-opacity-80 focus:outline-none"
+                      >
+                        Create
+                      </button>
                       <button
                         type="button"
-                        className="w-full max-w-[5rem] bg-cerulean text-drip-heaven text-sm text-center py-3 rounded-lg hover:bg-opacity-90 focus:outline-none"
+                        className="w-full max-w-[5rem] bg-light-panther text-bright-white text-sm text-center py-3 rounded-full transition ease-in-out duration-300 transform hover:bg-opacity-80 focus:outline-none"
                         onClick={closeModal}
                       >
                         Cancel

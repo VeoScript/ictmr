@@ -17,7 +17,7 @@ export default function MonthlyReports() {
         <div className="flex flex-row justify-between items-center w-full px-6 mt-14">
           <div className="flex flex-col items-start w-full max-w-full px-10 space-y-1">
             <h1 className="font-bold text-5xl">Monthly Reports</h1>
-            <h6 className="font-light text-sm">My Monthly Report</h6>
+            <h6 className="font-light text-sm">Lets keep our work clean and organized</h6>
           </div>
           <div className="flex flex-col w-full max-w-sm space-y-2 px-10">
             <CreateReportAlbum />
