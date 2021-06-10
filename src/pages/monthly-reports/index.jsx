@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '~/layout/default'
 import SearchBar from '~/components/search-functions/DashboardSearch'
+import CreateReportAlbum from '~/components/modals/monthly-reports/CreateReportAlbum'
 
 export default function MonthlyReports() {
   return (
@@ -19,17 +20,7 @@ export default function MonthlyReports() {
             <h6 className="font-light text-sm">My Monthly Report</h6>
           </div>
           <div className="flex flex-col w-full max-w-sm space-y-2 px-10">
-            <Link href="/">
-              <a className="flex flex-col w-full rounded-xl px-5 py-3 bg-light-panther transition ease-in-out duration-300 transform hover:scale-95">
-                <div className="flex flex-row items-center w-full space-x-3">
-                  <img className="w-10 h-10 object-cover rounded-full" src="https://avatars.githubusercontent.com/u/26340308?v=4" alt="avatar" />
-                  <div className="flex flex-col w-full">
-                    <h1 className="font-normal text-base">Jerome Villaruel</h1>
-                    <h6 className="font-light text-xs text-cool-gray">SPMI IT-Coordinator</h6>
-                  </div>
-                </div>
-              </a>
-            </Link>
+            <CreateReportAlbum />
           </div>
         </div>
         <div className="flex flex-col w-full h-full px-10 py-10">
