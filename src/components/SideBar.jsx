@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { menu } from '~/static/links'
-import ReactTooltip from 'react-tooltip'
 
 export default function SideBar() {
   const router = useRouter()
@@ -17,9 +16,9 @@ export default function SideBar() {
       <div className="flex flex-col justify-center items-center w-full h-full space-y-5">
         {menu.map(({ icon, href }, i) => (
           <Link href={ href } key={i}>
-            <div className={`${router.pathname == href ? 'bg-scarlet' : 'bg-light-panther'} flex flex-row justify-center w-1/2 px-5 py-2 rounded-md transition ease-in-out duration-300 transform hover:scale-90`}>
+            <a className={`${router.pathname == href ? 'bg-scarlet' : 'bg-light-panther'} flex flex-row justify-center w-1/2 px-5 py-2 rounded-md transition ease-in-out duration-300 transform hover:scale-90`}>
               <span>{ icon }</span>
-            </div>
+            </a>
           </Link>
         ))}
       </div>
