@@ -16,7 +16,7 @@ export default function Home() {
         <div className="flex flex-row items-center justify-center w-full">
           <SearchBar />
         </div>
-        <div className="flex flex-row justify-between items-center w-full px-6 mt-16">
+        <div className="flex flex-row justify-between items-center w-full px-6 mt-14">
           <div className="flex flex-col items-start w-full max-w-full px-10 space-y-1">
             <h1 className="font-bold text-5xl">Dashboard</h1>
             <h6 className="font-light text-sm">ICT Monthly Report - Monitor your lifestyle based on your job description</h6>
