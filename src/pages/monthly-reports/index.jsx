@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Layout from '~/layout/default'
 import SearchBar from '~/components/search-functions/DashboardSearch'
 import CreateReportAlbum from '~/components/modals/monthly-reports/CreateReportAlbum'
+import ReportsAlbum from '~/components/ReportsAlbum'
 
 export default function MonthlyReports() {
   return (
@@ -23,8 +24,8 @@ export default function MonthlyReports() {
             <CreateReportAlbum />
           </div>
         </div>
-        <div className="flex flex-col w-full h-full px-10 py-10">
-          {/* Monthly Reports Code Here... */}
+        <div className="grid grid-cols-3 gap-4 w-full overflow-y-auto px-10 py-10">
+          <ReportsAlbum />
         </div>
       </Layout>
     </>
