@@ -45,7 +45,7 @@ export default function CreateReportAlbum() {
         <button
           type="button"
           onClick={openModal}
-          className="flex flex-row items-center space-x-2 px-6 py-4 bg-scarlet rounded-full text-lg transition ease-in-out duration-200 transform hover:scale-95 focus:outline-none"
+          className="flex flex-row items-center space-x-2 px-6 py-3 bg-scarlet rounded-full text-base transition ease-in-out duration-200 transform hover:scale-95 focus:outline-none"
         >
           <PlusIcon />
           <span>Create Album</span>
