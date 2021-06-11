@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function ReportsAlbum() {
   return (
-    <Link href="/">
+    <Link href="/monthly-reports/[year]" as={`/monthly-reports/2021`}>
       <a className="flex flex-col w-full py-5">
         <div className="flex flex-col h-[23rem] bg-light-panther text-bright-white rounded-xl transition ease-in-out duration-300 transform hover:scale-95 hover:shadow-md">
           <div className="relative">
