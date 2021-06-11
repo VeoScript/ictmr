@@ -5,7 +5,16 @@ import { Dialog, Transition } from '@headlessui/react'
 
 export default function CreateReportAlbum() {
 
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting }} = useForm()
+  const defaultValues = {
+    avatar: '',
+    title: '',
+    description: '',
+    year: '',
+    slug: '',
+    date: new Date(),
+  }
+
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting }} = useForm({ defaultValues })
 
   const router = useRouter()
 
@@ -37,9 +46,10 @@ export default function CreateReportAlbum() {
         <button
           type="button"
           onClick={openModal}
-          className="px-8 py-4 bg-scarlet rounded-full text-lg transition ease-in-out duration-200 transform hover:scale-95 focus:outline-none"
+          className="flex flex-row items-center space-x-2 px-6 py-4 bg-scarlet rounded-full text-lg transition ease-in-out duration-200 transform hover:scale-95 focus:outline-none"
         >
-          Create Album
+          <PlusIcon />
+          <span>Create Album</span>
         </button>
       </div>
 
@@ -92,10 +102,27 @@ export default function CreateReportAlbum() {
                     <div className="form-control">
                       <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
                         <input
-                          className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none"
+                          className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                          type="text"
+                          name="avatar"
+                          {...register("avatar", { required: true })}
+                          disabled={ isSubmitting }
+                          placeholder="Avatar URL"
+                        />
+                        <svg className="w-6 h-6 text-gray-400 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                      </div>
+                      { errors.avatar && <span className="font-medium text-xs tracking-wide text-bright-white mx-5">Album avatar is required.</span> }
+                    </div>
+                    <div className="form-control">
+                      <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
+                        <input
+                          className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                           type="text"
                           name="title"
                           {...register("title", { required: true })}
+                          disabled={ isSubmitting }
                           placeholder="Create Title"
                         />
                         <svg className="w-6 h-6 text-gray-400 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -107,10 +134,11 @@ export default function CreateReportAlbum() {
                     <div className="form-control">
                       <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
                         <input
-                          className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none"
+                          className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                           type="text"
                           name="description"
                           {...register("description", { required: true })}
+                          disabled={ isSubmitting }
                           placeholder="Description"
                         />
                         <svg className="w-6 h-6 text-gray-400 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -123,10 +151,11 @@ export default function CreateReportAlbum() {
                       <div className="form-control">
                         <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
                           <input
-                            className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none"
+                            className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                             type="text"
                             name="year"
                             {...register("year", { required: true })}
+                            disabled={ isSubmitting }
                             placeholder="Year"
                           />
                           <svg className="w-6 h-6 text-gray-400 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -137,10 +166,11 @@ export default function CreateReportAlbum() {
                       <div className="form-control">
                         <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
                           <input
-                            className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none"
+                            className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                             type="text"
                             name="slug"
                             {...register("slug", { required: true })}
+                            disabled={ isSubmitting }
                             placeholder="Slug"
                           />
                           <svg className="w-6 h-6 text-gray-400 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -160,13 +190,15 @@ export default function CreateReportAlbum() {
                     <div className="form-control flex flex-row justify-end items-center w-full space-x-1.5">
                       <button
                         type="submit"
-                        className="w-full max-w-[5rem] bg-cerulean text-bright-white text-sm text-center py-3 rounded-full transition ease-in-out duration-300 transform hover:bg-opacity-80 focus:outline-none"
+                        className="w-full max-w-[5rem] bg-cerulean text-bright-white text-sm text-center py-3 rounded-full transition ease-in-out duration-300 transform hover:bg-opacity-80 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                        disabled={ isSubmitting }
                       >
                         Create
                       </button>
                       <button
                         type="button"
-                        className="w-full max-w-[5rem] bg-light-panther text-bright-white text-sm text-center py-3 rounded-full transition ease-in-out duration-300 transform hover:bg-opacity-80 focus:outline-none"
+                        className="w-full max-w-[5rem] bg-light-panther text-bright-white text-sm text-center py-3 rounded-full transition ease-in-out duration-300 transform hover:bg-opacity-80 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                        disabled={ isSubmitting }
                         onClick={closeModal}
                       >
                         Cancel
@@ -180,5 +212,13 @@ export default function CreateReportAlbum() {
         </Dialog>
       </Transition>
     </>
+  )
+}
+
+function PlusIcon() {
+  return (
+    <svg className="w-6 h-6 text-bright-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+    </svg>
   )
 }
