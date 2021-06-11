@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { menu } from '~/static/links'
 
-export default function SearchYear() {
+export default function SearchMonth() {
   const [searchTerm, setSearchTerm] = useState("")
   const [isOpen, setIsOpen] = useState("")
 
