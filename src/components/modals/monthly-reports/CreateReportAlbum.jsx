@@ -10,7 +10,6 @@ export default function CreateReportAlbum() {
     title: '',
     description: '',
     year: '',
-    slug: '',
     date: new Date(),
   }
 
