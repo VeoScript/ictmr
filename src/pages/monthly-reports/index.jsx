@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout from '~/layout/default'
-import SearchBar from '~/components/search-functions/MonthlyReportSearch'
+import SearchBar from '~/components/search-functions/monthly-reports/SearchYear'
 import CreateReportAlbum from '~/components/modals/monthly-reports/CreateReportAlbum'
 import ReportsAlbum from '~/components/ReportsAlbum'
 
