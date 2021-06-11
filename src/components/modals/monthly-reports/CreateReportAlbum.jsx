@@ -100,23 +100,7 @@ export default function CreateReportAlbum() {
                 <form onSubmit={handleSubmit(onCreate)} className="flex flex-col w-full mt-5 space-y-1.5">
                   <div className="flex flex-col w-full space-y-2">
                     <div className="form-control">
-                      <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
-                        <input
-                          className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-                          type="text"
-                          name="avatar"
-                          {...register("avatar", { required: true })}
-                          disabled={ isSubmitting }
-                          placeholder="Avatar URL"
-                        />
-                        <svg className="w-6 h-6 text-gray-400 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                      </div>
-                      { errors.avatar && <span className="font-medium text-xs tracking-wide text-bright-white mx-5">Album avatar is required.</span> }
-                    </div>
-                    <div className="form-control">
-                      <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
+                      <div className="flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
                         <input
                           className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                           type="text"
@@ -132,7 +116,7 @@ export default function CreateReportAlbum() {
                       { errors.title && <span className="font-medium text-xs tracking-wide text-bright-white mx-5">Album title is required.</span> }
                     </div>
                     <div className="form-control">
-                      <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
+                      <div className="flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
                         <input
                           className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                           type="text"
@@ -149,7 +133,22 @@ export default function CreateReportAlbum() {
                     </div>
                     <div className="flex flex-row items-center w-full space-x-1.5">
                       <div className="form-control">
-                        <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
+                        <div className="flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
+                          <input
+                            className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                            type="text"
+                            name="avatar"
+                            {...register("avatar", { required: true })}
+                            disabled={ isSubmitting }
+                            placeholder="Avatar URL"
+                          />
+                          <svg className="w-6 h-6 text-gray-400 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="form-control">
+                        <div className="flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
                           <input
                             className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                             type="text"
@@ -163,31 +162,16 @@ export default function CreateReportAlbum() {
                           </svg>
                         </div>
                       </div>
-                      <div className="form-control">
-                        <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
-                          <input
-                            className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-                            type="text"
-                            name="slug"
-                            {...register("slug", { required: true })}
-                            disabled={ isSubmitting }
-                            placeholder="Slug"
-                          />
-                          <svg className="w-6 h-6 text-gray-400 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-                          </svg>
-                        </div>
-                      </div>
                     </div>
                     <div className="flex flex-row justify-between items-center w-full">
-                      <div className="w-full text-left -mt-2.5">
+                      <div className="flex w-full text-left -mt-1.5">
+                        { errors.avatar && <span className="font-medium text-xs tracking-wide text-bright-white mx-5">Avatar URL is required.</span> }
+                      </div>
+                      <div className="flex w-full text-left -mt-1.5">
                         { errors.year && <span className="font-medium text-xs tracking-wide text-bright-white mx-5">Year is required.</span> }
                       </div>
-                      <div className="w-full text-left -mt-2.5">
-                        { errors.slug && <span className="font-medium text-xs tracking-wide text-bright-white mx-5">Slug is required.</span> }
-                      </div>
                     </div>
-                    <div className="form-control flex flex-row justify-end items-center w-full space-x-1.5">
+                    <div className="form-control flex flex-row justify-end items-center w-full pt-0.5 space-x-1.5">
                       <button
                         type="submit"
                         className="w-full max-w-[5rem] bg-cerulean text-bright-white text-sm text-center py-3 rounded-full transition ease-in-out duration-300 transform hover:bg-opacity-80 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
