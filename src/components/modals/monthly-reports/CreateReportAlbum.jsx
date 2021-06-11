@@ -6,9 +6,9 @@ import { Dialog, Transition } from '@headlessui/react'
 export default function CreateReportAlbum() {
 
   const defaultValues = {
-    avatar: '',
     title: '',
     description: '',
+    avatar: '',
     year: '',
     date: new Date(),
   }
