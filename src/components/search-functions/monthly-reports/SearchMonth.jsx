@@ -30,8 +30,8 @@ export default function SearchMonth() {
   )
 
   return (
-    <div className="flex flex-col items-center w-full">
-      <div className="searchbox flex flex-row items-center w-full max-w-sm mt-5 bg-light-panther rounded-full">
+    <div className="flex flex-col w-full">
+      <div className="searchbox flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
         <input
           className="w-full px-5 py-3 bg-light-panther rounded-full focus:outline-none"
           type="text"

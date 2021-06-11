@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
-export default function ReportsAlbum() {
+export default function DisplayYear() {
   return (
     <Link href="/monthly-reports/[year]" as={`/monthly-reports/2021`}>
       <a className="flex flex-col w-full py-5">
-        <div className="flex flex-col h-[23rem] bg-light-panther text-bright-white rounded-xl transition ease-in-out duration-300 transform hover:scale-95 hover:shadow-md">
+        <div className="flex flex-col h-[21rem] bg-light-panther text-bright-white rounded-xl transition ease-in-out duration-300 transform hover:scale-95 hover:shadow-md">
           <div className="relative">
             <div className="absolute w-full inset-0 -top-5 z-30">
               <div className="flex flex-row justify-center w-full">
@@ -15,20 +15,20 @@ export default function ReportsAlbum() {
           <div className="relative">
             <div className="absolute w-full inset-0 top-44 mt-5 px-6 z-10">
               <div className="flex flex-col w-full space-y-2 px-3">
-                <div className="flex flex-row justify-between items-center w-full">
+                <div className="flex flex-row justify-between w-full">
                   <div className="flex flex-col w-full">
                     <span className="font-bold text-xl">Report Title</span>
                     <span className="font-light text-xs text-cool-gray">Date here...</span>
                   </div>
-                  <div className="flex flex-row justify-end w-full">
-                    <span className="font-bold text-sm bg-cerulean text-panther px-3 py-1 rounded-full">2021</span>
+                  <div className="flex flex-row items-center justify-end w-full">
+                    <span className="font-bold text-sm bg-cerulean text-light-panther px-3 py-1 rounded-full">2021</span>
                   </div>
                 </div>
                 <div className="flex flex-col w-full space-y-3">
-                  <span className="font-normal text-base line-clamp-2">
+                  <span className="font-normal text-sm line-clamp-2">
                     Descriptions will display here...
                   </span>
-                  <span className="font-normal text-xs text-scarlet">Read More...</span>
+                  <span className="font-normal text-xs text-cerulean">Read More...</span>
                 </div>
               </div>
             </div>
