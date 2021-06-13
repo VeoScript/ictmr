@@ -38,7 +38,30 @@ export default async(req, res) => {
     }
   })
 
+  const countAllMonths = await prisma.reports.count({
+    where: {
+      albumYear: '2022',
+      albumMonth: 'January'
+    }, 
+    select: {
+      _all: true
+    }
+  })
+
+  const getYear = await prisma.yearAlbum.findFirst({
+    where: {
+      year: '2022'
+    },
+    select: {
+      month: {
+        select: {
+          month: true
+        }
+      }
+    }
+  })
+
   res.setHeader('Content-Type', 'application/json')
   res.statusCode = 200
-  res.end(JSON.stringify({ message: 'success', year, month }))
+  res.end(JSON.stringify({ message: 'success', countAllMonths }))
 }
