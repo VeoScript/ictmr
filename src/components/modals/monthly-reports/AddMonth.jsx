@@ -3,11 +3,11 @@ import { useRouter } from 'next/router'
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 
-export default function AddMonth() {
+export default function AddMonth({ year }) {
 
   const defaultValues = {
-    month: '',
-    date: new Date(),
+    albumYear: year.year,
+    month: ''
   }
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitting }} = useForm({ defaultValues })
@@ -19,10 +19,14 @@ export default function AddMonth() {
   }
 
   async function onCreate(formData) {
-    console.log(formData)
+    const response = await fetch('/api/reports/create-month', {
+      method: 'POST',
+      body: JSON.stringify(formData)
+    })
     reset()
-    closeModal()
     refreshData()
+    closeModal()
+    return await response.json()
   }
 
   let [isOpen, setIsOpen] = useState(false)

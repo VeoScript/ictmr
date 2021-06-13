@@ -21,7 +21,7 @@ export default function Year({ getYear, getMonth }) {
             <SearchBar />
           </div>
           <div className="flex flex-col w-full">
-            <AddMonth />
+            <AddMonth year={ getYear } />
           </div>
         </div>
         <div className="flex flex-col w-full h-full px-10 py-10 mt-10">
