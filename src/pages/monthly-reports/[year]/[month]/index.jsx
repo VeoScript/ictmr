@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import SearchBar from '~/components/search-functions/monthly-reports/SearchMonth'
+import SearchBar from '~/components/search-functions/DashboardSearch'
 import DisplayReports from '~/components/DisplayReports'
 import { PrismaClient } from '@prisma/client'
 
