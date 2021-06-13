@@ -2,8 +2,9 @@ import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import toast, { Toaster } from 'react-hot-toast'
 
-export default function AddMonth({ year }) {
+export default function AddMonth({ year, months }) {
 
   const defaultValues = {
     albumYear: year.year,
@@ -19,6 +20,13 @@ export default function AddMonth({ year }) {
   }
 
   async function onCreate(formData) {
+    const monthExist = months.some(album => album.month === formData.month)
+
+    if(monthExist) {
+      toast.error('This month was already exist.')
+      return
+    }
+
     const response = await fetch('/api/reports/create-month', {
       method: 'POST',
       body: JSON.stringify(formData)
@@ -42,6 +50,10 @@ export default function AddMonth({ year }) {
 
   return(
     <>
+      <Toaster 
+        position="top-center"
+        reverseOrder={true}
+      />
       <div className="flex flex-row justify-end w-full space-x-1.5">
         <button
           type="button"
@@ -110,7 +122,7 @@ export default function AddMonth({ year }) {
                     <div className="form-control">
                       <div className="flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
                         <input
-                          className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                          className="w-full px-5 py-3 uppercase bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                           type="text"
                           name="month"
                           {...register("month", { required: true })}
