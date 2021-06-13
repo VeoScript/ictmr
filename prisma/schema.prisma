@@ -12,16 +12,39 @@ generator client {
 
 model User {
   id Int @id @default(autoincrement())
-  avatar String?
-  name String?
-  position String?
+  avatar String
+  name String
+  position String
+}
+
+model YearAlbum {
+  title String
+  description String
+  avatar String
+  year String
+  date String
+  month MonthAlbum[]
+
+  @@id([year])
+}
+
+model MonthAlbum {
+  album YearAlbum @relation(fields: [albumYear], references: [year])
+  albumYear String
+  month String
+  reports Reports[]
+
+  @@id([albumYear, month])
 }
 
 model Reports {
-  id Int @id @default(autoincrement())
-  title String?
-  description String?
-  avatar String?
-  year String?
-  date String?
+  id Int @id  @default(autoincrement())
+  year MonthAlbum @relation(fields: [albumYear, albumMonth], references: [albumYear, month])
+  albumYear String
+  albumMonth String
+  requesting_person String
+  reported_issue String
+  resolution_made String
+  date_reported String
+  date_resolved String
 }
