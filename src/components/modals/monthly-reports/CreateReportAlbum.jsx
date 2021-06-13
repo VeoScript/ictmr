@@ -2,8 +2,9 @@ import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import toast, { Toaster } from 'react-hot-toast'
 
-export default function CreateReportAlbum() {
+export default function CreateReportAlbum({ albums }) {
 
   const defaultValues = {
     title: '',
@@ -22,6 +23,14 @@ export default function CreateReportAlbum() {
   }
 
   async function onCreate(formData) {
+    const titleExist = albums.some(album => album.title === formData.title)
+    const yearExist = albums.some(album => album.year === formData.year)
+
+    if(titleExist || yearExist) {
+      toast.error('This album was already exist.')
+      return
+    }
+
     const response = await fetch('/api/reports/create-year', {
       method: 'POST',
       body: JSON.stringify(formData)
@@ -45,6 +54,10 @@ export default function CreateReportAlbum() {
 
   return(
     <>
+      <Toaster 
+        position="top-center"
+        reverseOrder={true}
+      />
       <div className="flex items-center justify-center">
         <button
           type="button"
