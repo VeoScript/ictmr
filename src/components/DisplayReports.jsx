@@ -2,11 +2,18 @@ import { useRouter } from 'next/router'
 import AddReport from '~/components/modals/monthly-reports/AddReport'
 
 export default function DisplayReports({ getReports, getYear, getMonth }) {
+
+  const check = getReports.map((id) => {
+    return {
+      id
+    }
+  })
+
   const router = useRouter()
   return (
-    <div className="flex flex-col w-full px-4">
-      <div className="cards flex flex-col w-full max-w-full h-[28rem] overflow-y-auto rounded-xl bg-light-panther">
-        <div className="flex flex-col w-full h-24">
+    <div className="flex flex-col w-full h-full px-4">
+      <div className="cards flex flex-col w-full max-w-full h-full overflow-y-hidden rounded-xl bg-light-panther">
+        <div className="flex flex-col w-full h-full">
           <div className="flex flex-row justify-center items-center w-full px-5 py-5">
             <div className="flex flex-col items-start w-full max-w-md">
               <h1 className="font-semibold text-lg">Tasks you have completed</h1>
@@ -32,7 +39,10 @@ export default function DisplayReports({ getReports, getYear, getMonth }) {
               </button>
             </div>
           </div>
-          <div className="flex flex-col w-full px-5 space-y-2">
+          <div className={`mt-16 ${check[0] ? 'hidden' : 'flex flex-row items-center justify-center w-full h-full'}`}>
+            <h1 className="font-bold text-5xl opacity-30">No tasks so far.</h1>
+          </div>
+          <div className="flex flex-col w-full h-full overflow-y-auto px-5 py-3 space-y-2">
             {getReports.map((({ requesting_person, reported_issue, resolution_made, date_reported, date_resolved }, i) => {
               return (
                 <div className="flex flex-row items-center justify-between w-full px-5 py-3 rounded-xl transition ease-in-out duration-300 hover:shadow-lg cursor-default bg-panther" key={i}>

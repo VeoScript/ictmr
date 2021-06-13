@@ -8,6 +8,13 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export default function MonthlyReports({ getAlbumByYear }) {
+
+  const check = getAlbumByYear.map((title) => {
+    return {
+      title
+    }
+  })
+
   return (
     <>
       <Head>
@@ -25,6 +32,9 @@ export default function MonthlyReports({ getAlbumByYear }) {
           <div className="flex flex-col w-full">
             <CreateReportAlbum />
           </div>
+        </div>
+        <div className={check[0] ? 'hidden' : 'flex flex-row items-center justify-center w-full h-full'}>
+          <h1 className="font-bold text-5xl opacity-10">No album yet.</h1>
         </div>
         <div className="grid grid-cols-3 gap-4 w-full overflow-y-auto px-10 py-10 mt-8">
           <DisplayYear albums={ getAlbumByYear } />
