@@ -18,7 +18,7 @@ export default function Year({ getYear, getMonth }) {
             <h1 className="font-bold text-5xl">Reports { getYear.year }</h1>
           </div>
           <div className="flex flex-col w-full">
-            <SearchBar />
+            <SearchBar months={ getMonth } />
           </div>
           <div className="flex flex-col w-full">
             <AddMonth year={ getYear } />

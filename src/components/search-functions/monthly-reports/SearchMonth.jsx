@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
-import { menu } from '~/static/links'
 
-export default function SearchMonth() {
+export default function SearchMonth({ months }) {
   const [searchTerm, setSearchTerm] = useState("")
   const [isOpen, setIsOpen] = useState("")
 
@@ -16,11 +15,10 @@ export default function SearchMonth() {
     }
   }
 
-  const geLinks = menu.map(({name, icon, href}, counter) => {
+  const geLinks = months.map(({month, albumYear}, counter) => {
     return [
-      name,
-      icon,
-      href,
+      month,
+      albumYear,
       counter
     ]
   })
@@ -51,13 +49,12 @@ export default function SearchMonth() {
             <div className="absolute w-full h-auto max-h-80 overflow-y-auto mt-2 rounded-xl bg-panther border-2 border-scarlet text-white z-10">
               <div className="flex flex-row w-full bg-opacity-75">
                 <ul className="flex flex-col w-full">
-                  {results.map(menus => {
+                  {results.map(year_month => {
                     return (
-                      <li className="flex flex-row items-center w-full border-b border-light-panther" key={menus[3]}>
-                        <Link href={`${menus[2]}`}>
+                      <li className="flex flex-row items-center w-full border-b border-light-panther" key={year_month[2]}>
+                        <Link href="/monthly-reports/[year]/[month]" as={`/monthly-reports/${year_month[1]}/${year_month[0]}`}>
                           <a className="flex flex-row items-center w-full px-3 py-2 transition ease-in-out duration-200 hover:bg-light-panther space-x-3">
-                            <span className="px-3 py-2 rounded-md bg-scarlet">{ menus[1] }</span>
-                            <span className="font-normal text-lg text-scheme-pale">{menus[0]}</span>
+                            <span className="font-normal text-lg text-scheme-pale">{year_month[0]}</span>
                           </a>
                         </Link>
                       </li>
