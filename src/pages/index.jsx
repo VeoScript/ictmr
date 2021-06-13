@@ -11,7 +11,7 @@ export default function Home() {
         <title>ICTMR</title>
       </Head>
       <Layout>
-        <div className="flex flex-row items-center justify-center w-full">
+        <div className="flex flex-row items-center justify-center w-full mt-5">
           <SearchBar />
         </div>
         <div className="flex flex-row justify-between items-center w-full px-6 mt-14">
