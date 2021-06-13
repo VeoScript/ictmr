@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Moment from 'react-moment'
 
 export default function DisplayYear({ albums }) {
   return (
@@ -20,7 +21,7 @@ export default function DisplayYear({ albums }) {
                     <div className="flex flex-row justify-between w-full">
                       <div className="flex flex-col w-full">
                         <span className="font-bold text-xl">{ album.title }</span>
-                        <span className="font-light text-xs text-cool-gray">{ album.date }</span>
+                        <span className="font-light text-xs text-cool-gray"><Moment date={ album.date } format='LL' /></span>
                       </div>
                       <div className="flex flex-row items-center justify-end w-full">
                         <span className="font-bold text-sm bg-cerulean text-light-panther px-3 py-1 rounded-full">{ album.year }</span>
