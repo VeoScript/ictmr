@@ -22,10 +22,14 @@ export default function CreateReportAlbum() {
   }
 
   async function onCreate(formData) {
-    console.log(formData)
+    const response = await fetch('/api/reports/create-year', {
+      method: 'POST',
+      body: JSON.stringify(formData)
+    })
     reset()
-    closeModal()
     refreshData()
+    closeModal()
+    return await response.json()
   }
 
   let [isOpen, setIsOpen] = useState(false)
