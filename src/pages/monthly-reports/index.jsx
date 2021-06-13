@@ -27,7 +27,7 @@ export default function MonthlyReports({ getAlbumByYear }) {
             <h6 className="font-light text-sm text-cool-gray">Let your work clean and organized</h6>
           </div>
           <div className="flex flex-col w-full">
-            <SearchBar />
+            <SearchBar albums={ getAlbumByYear } />
           </div>
           <div className="flex flex-col w-full">
             <CreateReportAlbum />
