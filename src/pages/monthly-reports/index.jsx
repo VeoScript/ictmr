@@ -3,8 +3,11 @@ import Layout from '~/layout/default'
 import SearchBar from '~/components/search-functions/monthly-reports/SearchYear'
 import CreateReportAlbum from '~/components/modals/monthly-reports/CreateReportAlbum'
 import DisplayYear from '~/components/DisplayYear'
+import { PrismaClient } from '@prisma/client'
 
-export default function MonthlyReports() {
+const prisma = new PrismaClient()
+
+export default function MonthlyReports({ getAlbumByYear }) {
   return (
     <>
       <Head>
@@ -24,9 +27,32 @@ export default function MonthlyReports() {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-4 w-full overflow-y-auto px-10 py-10 mt-8">
-          <DisplayYear />
+          <DisplayYear albums={ getAlbumByYear } />
         </div>
       </Layout>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const getAlbumByYear = await prisma.yearAlbum.findMany({
+    orderBy: [
+      {
+        year: 'desc'
+      }
+    ],
+    select: {
+      title: true,
+      description: true,
+      avatar: true,
+      year: true,
+      date: true,
+    }
+  })
+
+  return {
+    props: {
+      getAlbumByYear
+    }
+  }
 }
