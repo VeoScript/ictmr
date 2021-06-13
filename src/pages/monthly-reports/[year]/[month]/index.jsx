@@ -24,7 +24,7 @@ export default function Reports({ getYear, getMonth, reports }) {
           </div>
         </div>
         <div className="flex flex-col w-full h-full px-10 py-10 mt-5">
-          <DisplayReports getReports={ reports } />
+          <DisplayReports getReports={ reports } getYear={ getYear } getMonth={ getMonth } />
         </div>
       </div>
     </>
