@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import AddReport from '~/components/modals/monthly-reports/AddReport'
+import GeneratePDF from '~/components/GeneratePDF'
 
 export default function DisplayReports({ getReports, getYear, getMonth }) {
 
@@ -21,18 +22,11 @@ export default function DisplayReports({ getReports, getYear, getMonth }) {
             </div>
             <div className="flex flex-row justify-end items-end w-full max-w-full space-x-2">
               <AddReport year={ getYear } month={ getMonth } />
-              <button
-                  type="button"
-                  onClick={() => router.back()}
-                  className="flex flex-row items-center justify-center px-1 py-3 space-x-2 w-44 bg-cerulean rounded-full text-base transition ease-in-out duration-200 transform hover:scale-95 focus:outline-none"
-                >
-                <DownloadIcon />
-                <span>PDF</span>
-              </button>
+              <GeneratePDF reports={ getReports } year={ getYear } month={ getMonth } />
               <button
                 type="button"
                 onClick={() => router.back()}
-                className="flex flex-row items-center justify-center px-1 py-3 space-x-2 w-44 bg-panther rounded-full text-base transition ease-in-out duration-200 transform hover:scale-95 focus:outline-none"
+                className="flex flex-row items-center justify-center px-1 py-3 space-x-2 w-full max-w-[11rem] bg-panther rounded-full text-base transition ease-in-out duration-200 transform hover:scale-95 focus:outline-none"
               >
                 <BackIcon />
                 <span>Return</span>
@@ -73,14 +67,6 @@ export default function DisplayReports({ getReports, getYear, getMonth }) {
         </div>
       </div>
     </div>
-  )
-}
-
-function DownloadIcon() {
-  return (
-    <svg className="w-6 h-6 text-bright-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-    </svg>
   )
 }
 
