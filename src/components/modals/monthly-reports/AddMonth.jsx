@@ -23,7 +23,7 @@ export default function AddMonth({ year, months }) {
     const monthExist = months.some(album => album.month === formData.month)
 
     if(monthExist) {
-      toast.error('This month was already exist.')
+      toast.error('This month is already exist.')
       return
     }
 
