@@ -189,7 +189,7 @@ export default function EditComputer({ computer }) {
                         className="w-full max-w-[5rem] bg-cerulean text-bright-white text-sm text-center py-3 rounded-full transition ease-in-out duration-300 transform hover:bg-opacity-80 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                         disabled={ isSubmitting }
                       >
-                        Add
+                        Update
                       </button>
                       <button
                         type="button"
