@@ -3,8 +3,30 @@ import Link from 'next/link'
 import Layout from '~/layout/default'
 import SearchBar from '~/components/search-functions/DashboardSearch'
 import Dashboard from '~/components/Dashboard'
+import { PrismaClient } from '@prisma/client'
 
-export default function Home() {
+const prisma = new PrismaClient()
+
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+]
+
+const date = new Date()
+const getMonth = monthNames[date.getMonth()]
+const getYear = date.getFullYear().toString()
+
+export default function Home({ reports }) {
   return (
     <>
       <Head>
@@ -33,8 +55,22 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <Dashboard />
+        <Dashboard reports={reports} getMonth={ getMonth } getYear={ getYear } />
       </Layout>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const reports = await prisma.reports.findMany({
+    where: {
+      albumYear: getYear,
+      albumMonth: getMonth
+    }
+  })
+  return {
+    props: {
+      reports
+    }
+  }
 }
