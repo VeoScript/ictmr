@@ -44,12 +44,12 @@ export default function DisplayReports({ getReports, getYear, getMonth }) {
                     <h1 className="font-normal text-base">{ requesting_person }</h1>
                     <h1 className="font-light text-xs text-cool-gray">Requesting Person</h1>
                   </div>
-                  <div className="flex flex-col items-start w-full max-w-lg">
-                    <h1 className="font-normal text-base">{ reported_issue }</h1>
+                  <div className="flex flex-col items-start w-full max-w-lg mr-2">
+                    <h1 className="font-normal text-sm">{ reported_issue }</h1>
                     <h1 className="font-light text-xs text-cool-gray">Reported Issue</h1>
                   </div>
                   <div className="flex flex-col items-start w-full max-w-lg">
-                    <h1 className="font-normal text-base">{ resolution_made }</h1>
+                    <h1 className="font-normal text-sm">{ resolution_made }</h1>
                     <h1 className="font-light text-xs text-cool-gray">Resolution Made</h1>
                   </div>
                   <div className="flex flex-col items-end w-full max-w-xs">
