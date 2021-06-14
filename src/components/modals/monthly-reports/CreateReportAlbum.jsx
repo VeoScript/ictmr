@@ -27,7 +27,7 @@ export default function CreateReportAlbum({ albums }) {
     const yearExist = albums.some(album => album.year === formData.year)
 
     if(titleExist || yearExist) {
-      toast.error('This album was already exist.')
+      toast.error('This album is already exist.')
       return
     }
 
