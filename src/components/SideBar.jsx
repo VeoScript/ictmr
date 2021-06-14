@@ -9,7 +9,7 @@ export default function SideBar() {
       <div className="flex flex-col justify-center items-center w-full h-20">
         <Link href="/">
           <a className="transition ease-in-out duration-300 transform hover:scale-90">
-            <img className="w-8 h-8" src="./ictmr.png" alt="icon" />
+            <img className="w-8 h-8" src="/ictmr.png" alt="icon" />
           </a>
         </Link>
       </div>
