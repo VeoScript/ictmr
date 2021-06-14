@@ -31,7 +31,7 @@ export default function Reports({ getYear, getMonth, reports }) {
             <SearchBar />
           </div>
           <div className="flex flex-col items-end w-full">
-            <h1 className="font-bold text-5xl">{ getMonth.month }&nbsp;{ getYear.year }</h1>
+            <h1 className="font-bold text-5xl capitalize">{ getMonth.month }&nbsp;{ getYear.year }</h1>
           </div>
         </div>
         <div className="flex flex-col w-full h-full px-10 py-10 mt-5">
