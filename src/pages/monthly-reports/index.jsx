@@ -29,7 +29,7 @@ export default function MonthlyReports({ getAlbumByYear }) {
           <div className="flex flex-col w-full">
             <SearchBar albums={ getAlbumByYear } />
           </div>
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col items-end w-full">
             <CreateReportAlbum albums={ getAlbumByYear } />
           </div>
         </div>
