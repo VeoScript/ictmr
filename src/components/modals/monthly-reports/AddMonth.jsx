@@ -122,7 +122,7 @@ export default function AddMonth({ year, months }) {
                     <div className="form-control">
                       <div className="flex flex-row items-center w-full max-w-full bg-light-panther rounded-full">
                         <input
-                          className="w-full px-5 py-3 uppercase bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                          className="w-full px-5 py-3 bg-light-panther text-bright-white rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                           type="text"
                           name="month"
                           {...register("month", { required: true })}
