@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import DefaultErrorPage from 'next/error'
 import SearchBar from '~/components/search-functions/monthly-reports/SearchMonth'
 import AddMonth from '~/components/modals/monthly-reports/AddMonth'
 import DisplayMonth from '~/components/DisplayMonth'
@@ -7,6 +8,16 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export default function Year({ getYear, getMonth }) {
+
+  if (!getYear) {
+    return <>
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
+      <DefaultErrorPage statusCode={404} />
+    </>
+  }
+
   return (
     <>
       <Head>

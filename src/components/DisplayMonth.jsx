@@ -20,7 +20,7 @@ export default function DisplayMonth({ months }) {
               <a className="flex flex-col w-full h-[7rem] px-10 py-5 rounded-xl bg-panther transition ease-in-out duration-300 transform hover:scale-95 hover:shadow-md">
                 <div className="flex flex-row justify-between items-center w-full">
                   <div className="flex flex-col w-full space-y-1">
-                    <h1 className="font-bold text-3xl">{ month }</h1>
+                    <h1 className="font-bold text-3xl capitalize">{ month }</h1>
                     <span className="font-light text-sm text-cool-gray">See my entries in this month</span>
                   </div>
                   <ArrowIcon />
