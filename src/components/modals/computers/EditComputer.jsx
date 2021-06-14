@@ -1,16 +1,16 @@
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 
-export default function EditComputer({ computers }) {
+export default function EditComputer({ computer }) {
 
   const defaultValues = {
-    computer_name: '',
-    computer_owner: '',
-    computer_ip: '',
-    computer_description: '',
-    office_assign: '',
+    computer_name: computer.computer_name,
+    computer_owner: computer.computer_owner,
+    computer_ip: computer.computer_ip,
+    computer_description: computer.computer_description,
+    office_assign: computer.office_assign,
   }
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitting }} = useForm({ defaultValues })
@@ -21,13 +21,12 @@ export default function EditComputer({ computers }) {
   }
 
   async function onUpdate(formData) {
-    const getID = computers.id
+    const getID = computer.id
     const response = await fetch(`/api/computers/update-computers/${getID}`, {
       method: 'PUT',
       body: JSON.stringify(formData)
     })
     refreshData()
-    pushRouter()
     reset()
     closeModal()
     return await response.json()
@@ -47,13 +46,14 @@ export default function EditComputer({ computers }) {
 
   return (
     <>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-end w-full">
         <button
           type="button"
           onClick={openModal}
-          className="px-4 py-2 text-sm font-medium text-white bg-scheme-dark rounded-md hover:bg-opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+          className="flex flex-row items-center justify-center px-1 py-3 space-x-2 w-full max-w-[8rem] bg-cerulean rounded-full text-base transition ease-in-out duration-200 transform hover:scale-95 focus:outline-none"
         >
-          Edit Contact
+          <EditIcon />
+          <span>Edit</span>
         </button>
       </div>
 
@@ -208,5 +208,13 @@ export default function EditComputer({ computers }) {
         </Dialog>
       </Transition>
     </>
+  )
+}
+
+function EditIcon() {
+  return (
+    <svg className="w-6 h-6 text-bright-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+    </svg>
   )
 }
