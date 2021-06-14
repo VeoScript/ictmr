@@ -48,3 +48,12 @@ model Reports {
   date_reported String
   date_resolved String
 }
+
+model Computers {
+  id Int @id  @default(autoincrement())
+  computer_name String
+  computer_owner String
+  computer_ip String
+  computer_description String
+  office_assign String
+}
