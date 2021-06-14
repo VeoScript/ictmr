@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Layout from '~/layout/default'
 import SearchBar from '~/components/search-functions/DashboardSearch'
+import AddComputer from '~/components/modals/computers/AddComputer'
 
 export default function Computers() {
   return (
@@ -18,7 +19,7 @@ export default function Computers() {
             <SearchBar />
           </div>
           <div className="flex flex-col items-end w-full">
-            Display anything here...
+            <AddComputer />
           </div>
         </div>
         <div className="grid grid-cols-3 gap-4 w-full overflow-y-auto px-10 py-10 mt-8">
