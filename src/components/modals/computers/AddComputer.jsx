@@ -4,7 +4,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import toast, { Toaster } from 'react-hot-toast'
 
-export default function AddComputer() {
+export default function AddComputer({ computers }) {
 
   const defaultValues = {
     computer_name: '',
@@ -23,12 +23,19 @@ export default function AddComputer() {
   }
 
   async function onCreate(formData) {
-    // const monthExist = months.some(album => album.month === formData.month)
+    const computerExist = computers.some(computer => computer.computer_name === formData.computer_name)
+    const computerUserExist = computers.some(user => user.computer_owner === formData.computer_owner)
+    const ipExist = computers.some(ip => ip.computer_ip === formData.computer_ip)
 
-    // if(monthExist) {
-    //   toast.error('This month is already exist.')
-    //   return
-    // }
+    if(computerExist || computerUserExist) {
+      toast.error('This computer is already exist.')
+      return
+    }
+
+    if(ipExist) {
+      toast.error('This IP Address is already used.')
+      return
+    }
 
     const response = await fetch('/api/computers/create-computers', {
       method: 'POST',
