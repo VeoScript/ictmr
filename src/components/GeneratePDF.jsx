@@ -1,9 +1,20 @@
+import toast, { Toaster } from 'react-hot-toast'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
 
 export default function GeneratePDF({ reports, year, month }) {
 
   function generate() {
+
+    if(reports.length == 0) {
+      toast.error('No data to download!',
+        {
+          icon: '⚠️'
+        }
+      )
+      return
+    }
+
     const doc = new jsPDF()
 
     doc.autoTable({
@@ -25,6 +36,10 @@ export default function GeneratePDF({ reports, year, month }) {
 
   return (
     <div>
+      <Toaster 
+        position="top-center"
+        reverseOrder={true}
+      />
       <button
         type="button"
         onClick={generate}
