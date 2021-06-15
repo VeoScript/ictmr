@@ -2,7 +2,7 @@ import ComputerIcon from '~/components/icons/ComputerIcon'
 import NotebookIcon from '~/components/icons/NotebookIcon'
 import DowntimeIcon from '~/components/icons/DowntimeIcon'
 
-export default function Dashboard({ reports, getMonth, getYear }) {
+export default function Dashboard({ reports, getMonth, getYear, getCountComputers }) {
   return (
     <div className="flex flex-col w-full h-full px-10 py-10">
       <div className="flex flex-row justify-center w-full px-4 space-x-3">
@@ -13,7 +13,7 @@ export default function Dashboard({ reports, getMonth, getYear }) {
               <h1 className="font-light text-xs text-cool-gray">How many computers as of now?</h1>
             </div>
             <div className="flex flex-col justify-center w-full px-16 py-3">
-              <h1 className="font-bold text-7xl text-scarlet">22</h1>
+              <h1 className="font-bold text-7xl text-scarlet">{ getCountComputers._all }</h1>
             </div>
             <div className="absolute h-0 bottom-0 right-5 bg-cerulean">
               <ComputerIcon />
@@ -27,7 +27,7 @@ export default function Dashboard({ reports, getMonth, getYear }) {
               <h1 className="font-light text-xs text-cool-gray">How many notes do you have?</h1>
             </div>
             <div className="flex flex-col justify-center w-full px-16 py-3">
-              <h1 className="font-bold text-7xl text-scarlet">5</h1>
+              <h1 className="font-bold text-7xl text-scarlet">0</h1>
             </div>
             <div className="absolute h-0 bottom-0 right-5 bg-cerulean">
               <NotebookIcon />
@@ -41,7 +41,7 @@ export default function Dashboard({ reports, getMonth, getYear }) {
               <h1 className="font-light text-xs text-cool-gray">How many downtimes this day?</h1>
             </div>
             <div className="flex flex-col justify-center w-full px-16 py-3">
-              <h1 className="font-bold text-7xl text-scarlet">3</h1>
+              <h1 className="font-bold text-7xl text-scarlet">0</h1>
             </div>
             <div className="absolute h-0 bottom-0 right-5 bg-cerulean">
               <DowntimeIcon />

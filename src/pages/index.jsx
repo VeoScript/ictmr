@@ -26,7 +26,7 @@ const date = new Date()
 const getMonth = monthNames[date.getMonth()]
 const getYear = date.getFullYear().toString()
 
-export default function Home({ reports }) {
+export default function Home({ reports, countComputers }) {
   return (
     <>
       <Head>
@@ -55,7 +55,7 @@ export default function Home({ reports }) {
             </Link>
           </div>
         </div>
-        <Dashboard reports={reports} getMonth={ getMonth } getYear={ getYear } />
+        <Dashboard reports={ reports } getMonth={ getMonth } getYear={ getYear } getCountComputers={ countComputers } />
       </Layout>
     </>
   )
@@ -68,9 +68,16 @@ export async function getServerSideProps() {
       albumMonth: getMonth
     }
   })
+  const countComputers = await prisma.computers.count({
+    select: {
+      _all: true,
+      id: true
+    }
+  })
   return {
     props: {
-      reports
+      reports,
+      countComputers
     }
   }
 }
