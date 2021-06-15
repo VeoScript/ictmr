@@ -38,21 +38,21 @@ export default function ComputerID({ computer }) {
               <div className="flex flex-row items-center w-3/12 mt-3 px-5 py-5 rounded-xl bg-light-panther">
                 <ComputerIcon />
                 <div className="flex flex-col w-full">
-                  <h1 className="font-normal text-3xl">{ computer.computer_name }</h1>
+                  <h1 className="font-normal text-xl">{ computer.computer_name }</h1>
                   <span className="font-light text-base text-cool-gray">Hostname</span>
                 </div>
               </div>
               <div className="flex flex-row items-center w-5/12 mt-3 px-5 py-5 rounded-xl bg-light-panther">
                 <UserIcon />
                 <div className="flex flex-col w-full">
-                  <h1 className="font-normal text-2xl">{ computer.computer_owner }</h1>
+                  <h1 className="font-normal text-xl">{ computer.computer_owner }</h1>
                   <span className="font-light text-base text-cool-gray">Holder</span>
                 </div>
               </div>
               <div className="flex flex-row items-center w-4/12 mt-3 px-5 py-5 rounded-xl bg-light-panther">
                 <IPIcon />
                 <div className="flex flex-col w-full">
-                  <h1 className="font-normal text-2xl">{ computer.computer_ip }</h1>
+                  <h1 className="font-normal text-xl">{ computer.computer_ip }</h1>
                   <span className="font-light text-base text-cool-gray">IP Address</span>
                 </div>
               </div>
@@ -61,14 +61,14 @@ export default function ComputerID({ computer }) {
               <div className="flex flex-row items-center w-8/12 mt-3 px-5 py-5 rounded-xl bg-light-panther">
                 <DescriptionIcon />
                 <div className="flex flex-col w-full">
-                  <h1 className="font-normal text-2xl line-clamp-3">{ computer.computer_description }</h1>
+                  <h1 className="font-normal text-xl line-clamp-3">{ computer.computer_description }</h1>
                   <span className="font-light text-base text-cool-gray">Description</span>
                 </div>
               </div>
               <div className="flex flex-row items-center w-5/12 mt-3 px-5 py-5 rounded-xl bg-light-panther">
                 <OfficeIcon />
                 <div className="flex flex-col w-full">
-                  <h1 className="font-normal text-2xl">{ computer.office_assign }</h1>
+                  <h1 className="font-normal text-xl">{ computer.office_assign }</h1>
                   <span className="font-light text-base text-cool-gray">Office Assign</span>
                 </div>
               </div>
