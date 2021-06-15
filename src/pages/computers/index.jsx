@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout from '~/layout/default'
-import SearchBar from '~/components/search-functions/DashboardSearch'
+import SearchBar from '~/components/search-functions/ComputerSearch'
 import AddComputer from '~/components/modals/computers/AddComputer'
 import DisplayComputers from '~/components/DisplayComputers'
 import { PrismaClient } from '@prisma/client'
@@ -20,7 +20,7 @@ export default function Computers({ computers }) {
             <h6 className="font-light text-sm text-cool-gray">Computers and PC's Network Monitoring</h6>
           </div>
           <div className="flex flex-col w-full">
-            <SearchBar />
+            <SearchBar computers={ computers } />
           </div>
           <div className="flex flex-col items-end w-full">
             <AddComputer computers={ computers } />
