@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function EditComputer({ computer }) {
 
@@ -26,6 +27,7 @@ export default function EditComputer({ computer }) {
       method: 'PUT',
       body: JSON.stringify(formData)
     })
+    toast.success('Updated Successfully!')
     refreshData()
     reset()
     closeModal()
@@ -46,6 +48,10 @@ export default function EditComputer({ computer }) {
 
   return (
     <>
+      <Toaster 
+        position="bottom-right"
+        reverseOrder={true}
+      />
       <div className="flex items-center justify-end w-full">
         <button
           type="button"
