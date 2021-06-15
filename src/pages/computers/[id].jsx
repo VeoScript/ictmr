@@ -2,6 +2,7 @@ import Head from 'next/head'
 import DefaultErrorPage from 'next/error'
 import Layout from '~/layout/default'
 import EditComputer from '~/components/modals/computers/EditComputer'
+import DeleteComputer from '~/components/modals/computers/DeleteComputer'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -28,8 +29,9 @@ export default function ComputerID({ computer }) {
             <h1 className="font-bold text-4xl">Computer Properties</h1>
             <h6 className="font-light text-sm text-cool-gray">Update or delete this details</h6>
           </div>
-          <div className="flex flex-col items-end w-full mr-10">
+          <div className="flex flex-row justify-end items-center w-full mr-10 space-x-2">
             <EditComputer computer={ computer } />
+            <DeleteComputer computer={ computer } />
           </div>
         </div>
         <div className="flex flex-row justify-center items-center w-full h-full pt-10">
