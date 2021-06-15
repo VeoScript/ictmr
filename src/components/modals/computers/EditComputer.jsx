@@ -52,11 +52,11 @@ export default function EditComputer({ computer }) {
         position="bottom-right"
         reverseOrder={true}
       />
-      <div className="flex items-center justify-end w-full">
+      <div className="w-full max-w-[8rem]">
         <button
           type="button"
           onClick={openModal}
-          className="flex flex-row items-center justify-center px-1 py-3 space-x-2 w-full max-w-[8rem] bg-cerulean rounded-full text-base transition ease-in-out duration-200 transform hover:scale-95 focus:outline-none"
+          className="flex flex-row items-center justify-center px-1 py-3 space-x-2 w-full bg-cerulean rounded-full text-base transition ease-in-out duration-200 transform hover:scale-95 focus:outline-none"
         >
           <EditIcon />
           <span>Edit</span>
