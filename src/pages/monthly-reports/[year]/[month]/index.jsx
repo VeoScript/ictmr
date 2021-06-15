@@ -20,7 +20,7 @@ export default function Reports({ getYear, getMonth, reports }) {
   return (
     <>
       <Head>
-        <title>Reports | { getMonth.month }, { getYear.year } </title>
+        <title>ICTMR | { getYear.year } { getMonth.month }</title>
       </Head>
       <div className="flex flex-col items-center w-full max-w-full h-screen overflow-y-auto bg-panther text-bright-white">
         <div className="flex flex-row justify-between items-center w-full px-14 mt-14">
