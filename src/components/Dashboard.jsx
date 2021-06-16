@@ -50,8 +50,8 @@ export default function Dashboard({ reports, getMonth, getYear, getCountComputer
         </div>
       </div>
       <div className="flex flex-col w-full px-4 py-3">
-        <div className="cards flex flex-col w-full max-w-full h-[28rem] overflow-y-auto rounded-xl bg-light-panther">
-          <div className="flex flex-col w-full h-24">
+        <div className="cards flex flex-col w-full max-w-full h-[28rem] rounded-xl bg-light-panther">
+          <div className="flex flex-col w-full h-full">
             <div className="flex flex-row justify-between items-center w-full">
               <div className="flex flex-col w-full px-5 py-5">
                 <h1 className="font-semibold text-lg">Tasks you have completed</h1>
@@ -64,7 +64,7 @@ export default function Dashboard({ reports, getMonth, getYear, getCountComputer
             <div className={`mt-24 ${!reports.length == 0 ? 'hidden' : 'flex flex-row items-center justify-center w-full h-full'}`}>
               <h1 className="font-bold text-5xl opacity-30">No tasks so far.</h1>
             </div>
-            <div className="flex flex-col w-full px-5 space-y-2">
+            <div className="flex flex-col w-full h-full overflow-y-auto px-5 pb-5 space-y-2">
               {reports.map(({requesting_person, reported_issue, resolution_made, date_reported, date_resolved}, i) => {
                 return (
                   <div className="flex flex-row items-center justify-between w-full px-5 py-3 rounded-xl transition ease-in-out duration-300 hover:shadow-lg cursor-default bg-panther" key={i}>
