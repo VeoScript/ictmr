@@ -3,7 +3,7 @@ import Scrollbar from 'react-smooth-scrollbar'
 
 export default function DisplayComputers({ computers }) {
   return (
-    <div className="flex flex-col items-center w-full h-full max-h-[33rem] min-h-full px-10 py-10 mt-8">
+    <div className="flex flex-col items-center w-full h-full max-h-[35rem] min-h-full px-10 py-10">
       <div className="flex flex-row justify-start items-center text-left text-cool-gray w-full px-10 py-5 max-w-full space-x-5 bg-light-panther rounded-full">
         <div className="head w-2/12">Hostname</div>
         <div className="head w-3/12">Holder</div>
