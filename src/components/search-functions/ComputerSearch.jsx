@@ -50,9 +50,9 @@ export default function ComputerSearch({ computers }) {
             <div className="absolute w-full h-auto overflow-hidden mt-2 rounded-xl bg-panther border-2 border-scarlet text-white z-10">
               <div className="flex flex-row w-full h-auto max-h-[15rem] overflow-y-auto bg-opacity-75">
                 <Scrollbar
-                    className="w-full"
-                    damping={0.1}
-                    thumbMinSize={20}
+                  className="w-full"
+                  damping={0.1}
+                  thumbMinSize={20}
                 >
                   <ul className="flex flex-col w-full">
                     {results.map(pc => {

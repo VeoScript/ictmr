@@ -8,7 +8,7 @@ export default function Layout({ children }) {
           <div className="flex flex-col w-full max-w-[4rem] h-full overflow-hidden">
             <SideBar />
           </div>
-          <div className="flex flex-col items-center w-full max-w-full h-full overflow-y-auto">
+          <div className="flex flex-col items-center w-full max-w-full h-full overflow-hidden">
             { children }
           </div>
         </div>
