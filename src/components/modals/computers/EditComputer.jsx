@@ -27,7 +27,13 @@ export default function EditComputer({ computer }) {
       method: 'PUT',
       body: JSON.stringify(formData)
     })
-    toast.success('Updated Successfully!')
+    toast.success('Updated Successfully!', {
+      style: {
+        borderRadius: '10px',
+        background: '#C0E7C1',
+        color: '#235C24',
+      }
+    })
     refreshData()
     reset()
     closeModal()
@@ -49,7 +55,7 @@ export default function EditComputer({ computer }) {
   return (
     <>
       <Toaster 
-        position="bottom-right"
+        position="bottom-center"
         reverseOrder={true}
       />
       <div className="w-full max-w-[8rem]">

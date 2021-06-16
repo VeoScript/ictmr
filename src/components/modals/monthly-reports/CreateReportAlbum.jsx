@@ -27,7 +27,13 @@ export default function CreateReportAlbum({ albums }) {
     const yearExist = albums.some(album => album.year === formData.year)
 
     if(titleExist || yearExist) {
-      toast.error('This album is already exist.')
+      toast.error('This album is already exist.', {
+        style: {
+          borderRadius: '10px',
+          background: '#FDB9B9',
+          color: '#9B0404',
+        }
+      })
       return
     }
 
@@ -55,7 +61,7 @@ export default function CreateReportAlbum({ albums }) {
   return(
     <>
       <Toaster 
-        position="top-center"
+        position="bottom-center"
         reverseOrder={true}
       />
       <div className="flex items-center justify-center">

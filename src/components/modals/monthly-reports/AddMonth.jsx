@@ -23,7 +23,13 @@ export default function AddMonth({ year, months }) {
     const monthExist = months.some(album => album.month === formData.month)
 
     if(monthExist) {
-      toast.error('This month is already exist.')
+      toast.error('This month is already exist.', {
+        style: {
+          borderRadius: '10px',
+          background: '#FDB9B9',
+          color: '#9B0404',
+        }
+      })
       return
     }
 
@@ -51,7 +57,7 @@ export default function AddMonth({ year, months }) {
   return(
     <>
       <Toaster 
-        position="top-center"
+        position="bottom-center"
         reverseOrder={true}
       />
       <div className="flex flex-row justify-end w-full space-x-1.5">
