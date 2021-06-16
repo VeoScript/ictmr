@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
-import { menu } from '~/static/links'
+import Scrollbar from 'react-smooth-scrollbar'
 
 export default function SearchYear({ albums }) {
   const [searchTerm, setSearchTerm] = useState("")
@@ -48,22 +48,28 @@ export default function SearchYear({ albums }) {
         <>
           <button onClick={(e) => {setIsOpen(false); setSearchTerm(e.target.value="")}} type="button" className={`${isOpen ? 'z-20 block fixed inset-0 w-full h-full cursor-default focus:outline-none' : 'hidden'}`}></button>
           <div className={`z-40 w-full max-w-sm h-full ${isOpen ? 'relative' : 'hidden'}`}>
-            <div className="absolute w-full h-auto max-h-80 overflow-y-auto mt-2 rounded-xl bg-panther border-2 border-scarlet text-white z-10">
-              <div className="flex flex-row w-full bg-opacity-75">
-                <ul className="flex flex-col w-full">
-                  {results.map(album => {
-                    return (
-                      <li className="flex flex-row items-center w-full border-b border-light-panther" key={album[3]}>
-                        <Link href="/monthly-reports/[year]" as={`/monthly-reports/${album[2]}`}>
-                          <a className="flex flex-row items-center w-full px-3 py-2 transition ease-in-out duration-200 hover:bg-light-panther space-x-3">
-                            <img className="w-12 h-12 rounded-full object-cover" src={album[1]} alt="avatar" />
-                            <span className="font-normal text-lg text-scheme-pale">{album[0]}</span>
-                          </a>
-                        </Link>
-                      </li>
-                    )
-                  })}
-                </ul>
+            <div className="absolute w-full h-auto overflow-hidden mt-2 rounded-xl bg-panther border-2 border-scarlet text-white z-10">
+              <div className="flex flex-row w-full h-auto max-h-[15rem] overflow-y-auto bg-opacity-75">
+                <Scrollbar
+                  className="w-full"
+                  damping={0.1}
+                  thumbMinSize={20}
+                >
+                  <ul className="flex flex-col w-full">
+                    {results.map(album => {
+                      return (
+                        <li className="flex flex-row items-center w-full border-b border-light-panther" key={album[3]}>
+                          <Link href="/monthly-reports/[year]" as={`/monthly-reports/${album[2]}`}>
+                            <a className="flex flex-row items-center w-full px-3 py-2 transition ease-in-out duration-200 hover:bg-light-panther space-x-3">
+                              <img className="w-12 h-12 rounded-full object-cover" src={album[1]} alt="avatar" />
+                              <span className="font-normal text-lg text-scheme-pale">{album[0]}</span>
+                            </a>
+                          </Link>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </Scrollbar>
               </div>
             </div>
           </div>
