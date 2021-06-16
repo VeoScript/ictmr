@@ -13,11 +13,18 @@ export default function EditComputer({ computer }) {
     router.replace('/computers')
   }
 
-  async function onDelete(formData) {
+  async function onDelete() {
     const response = await fetch(`/api/computers/delete-computers/${computer.id}`, {
       method: 'DELETE',
     })
-    toast.success('Deleted Successfully!')
+    toast.success('Deleted Successfully!', {
+      style: {
+        marginTop: '-40px',
+        borderRadius: '10px',
+        background: '#C0E7C1',
+        color: '#235C24',
+      }
+    })
     refreshData()
     reset()
     closeModal()
@@ -37,7 +44,7 @@ export default function EditComputer({ computer }) {
   return (
     <>
       <Toaster 
-        position="bottom-right"
+        position="bottom-center"
         reverseOrder={true}
       />
       <div className="w-full max-w-[8rem]">

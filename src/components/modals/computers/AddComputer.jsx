@@ -28,12 +28,28 @@ export default function AddComputer({ computers }) {
     const ipExist = computers.some(ip => ip.computer_ip === formData.computer_ip)
 
     if(computerExist || computerUserExist) {
-      toast.error('This computer is already exist.')
+      closeModal()
+      toast.error('This computer is already exist.', {
+        style: {
+          marginTop: '-40px',
+          borderRadius: '10px',
+          background: '#FDB9B9',
+          color: '#9B0404',
+        }
+      })
       return
     }
 
     if(ipExist) {
-      toast.error('This IP Address is already used.')
+      closeModal()
+      toast.error('This IP Address is already used.', {
+        style: {
+          marginTop: '-40px',
+          borderRadius: '10px',
+          background: '#FDB9B9',
+          color: '#9B0404',
+        }
+      })
       return
     }
 
@@ -60,8 +76,8 @@ export default function AddComputer({ computers }) {
 
   return(
     <>
-      <Toaster 
-        position="top-center"
+      <Toaster
+        position="bottom-center"
         reverseOrder={true}
       />
       <div className="flex flex-row justify-end w-full space-x-1.5">
