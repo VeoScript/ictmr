@@ -57,3 +57,22 @@ model Computers {
   computer_description String
   office_assign String
 }
+
+model Networks {
+  id Int @id  @default(autoincrement())
+  internet_main String
+  internet_backup String
+  internet_office String
+  internet_staffhouse String
+  ip_main String
+  ip_backup String
+  ip_office String
+  ip_staffhouse String
+}
+
+model DowntimeReport {
+  id Int @id  @default(autoincrement())
+  isp String
+  description String
+  create_at DateTime @default(now())
+}
