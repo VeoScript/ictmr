@@ -3,6 +3,7 @@ import Layout from '~/layout/default'
 import SearchBar from '~/components/search-functions/monthly-reports/SearchYear'
 import CreateReportAlbum from '~/components/modals/monthly-reports/CreateReportAlbum'
 import DisplayYear from '~/components/DisplayYear'
+import Scrollbar from 'react-smooth-scrollbar'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -29,16 +30,22 @@ export default function MonthlyReports({ getAlbumByYear }) {
           <div className="flex flex-col w-full">
             <SearchBar albums={ getAlbumByYear } />
           </div>
-          <div className="flex flex-col items-end w-full">
+          <div className="flex flex-col items-end w-full mr-5">
             <CreateReportAlbum albums={ getAlbumByYear } />
           </div>
         </div>
         <div className={check[0] ? 'hidden' : 'flex flex-row items-center justify-center w-full h-full'}>
           <h1 className="font-bold text-5xl opacity-10">No album yet.</h1>
         </div>
-        <div className="grid grid-cols-3 gap-4 w-full overflow-y-auto px-10 py-10 mt-8">
-          <DisplayYear albums={ getAlbumByYear } />
-        </div>
+        <Scrollbar
+          className="w-full h-full overflow-y-auto"
+          damping={0.1}
+          thumbMinSize={20}
+        >
+          <div className="grid grid-cols-3 gap-4 w-full px-10 py-10 mt-8">
+            <DisplayYear albums={ getAlbumByYear } />
+          </div>
+        </Scrollbar>
       </Layout>
     </>
   )
