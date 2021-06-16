@@ -20,7 +20,7 @@ export default function DisplayComputers({ computers }) {
           {computers.map(({ id, computer_name, computer_owner, computer_ip, computer_description, office_assign }, i) => {
             return (
               <Link href="/computers/[id]" as={`/computers/${id}`} key={i}>
-                <a className="flex flex-row justify-center items-center text-start text-sm w-full max-w-full mt-2 px-5 py-5 space-x-5 bg-light-panther rounded-full transition ease-in-out duration-300 hover:shadow-lg">
+                <a className="flex flex-row justify-center items-center text-start text-sm w-full max-w-full mt-2 px-10 py-5 space-x-5 bg-light-panther rounded-full transition ease-in-out duration-300 hover:shadow-lg">
                   <div className="head w-2/12">{ computer_name }</div>
                   <div className="head w-3/12">{ computer_owner }</div>
                   <div className="head w-5/12">{ computer_description }</div>
