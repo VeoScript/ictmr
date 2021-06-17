@@ -1,7 +1,7 @@
 import Scrollbar from 'react-smooth-scrollbar'
 import Moment from 'react-moment'
 
-export default function DisplayNetworks({ networks, downtime, networkStatus }) {
+export default function DisplayNetworks({ networks, downtime, countDowntime, networkStatus }) {
   return (
     <div className="flex flex-col items-center w-full px-10 py-10 pb-20 space-y-5">
       <div className="flex flex-row w-full space-x-5">
@@ -55,7 +55,7 @@ export default function DisplayNetworks({ networks, downtime, networkStatus }) {
             </div>
             <div className="flex flex-col w-full mt-5 space-y-3">
               <div className="flex flex-row items-center justify-between w-full px-10 py-3 rounded-full bg-panther text-bright-white space-x-2">
-                <span className="font-light text-sm text-cool-gray">Downtime</span><span className="font-bold text-2xl text-scarlet">5</span>
+                <span className="font-light text-sm text-cool-gray">Downtime</span><span className="font-bold text-2xl text-scarlet">{ countDowntime._all }</span>
               </div>
               <div className="flex flex-col w-full">
                 <span className="font-normal text-lg text-cerulean">{ networks[0].internet_staffhouse }</span>
@@ -81,6 +81,9 @@ export default function DisplayNetworks({ networks, downtime, networkStatus }) {
             damping={0.1}
             thumbMinSize={20}
           >
+            <div className={`${!downtime.length == 0 ? 'hidden' : 'flex flex-row justify-center items-center mt-3 w-full h-full'}`}>
+              <h1 className="font-bold text-4xl opacity-30">No internet downtime so far.</h1>
+            </div>
             <div className="flex flex-col w-full h-full overflow-y-auto py-3 mt-3 space-y-2">
               {downtime.map((({ isp, description, create_at }, i) => {
                 return (

@@ -3,7 +3,7 @@ import NotebookIcon from '~/components/icons/NotebookIcon'
 import DowntimeIcon from '~/components/icons/DowntimeIcon'
 import Scrollbar from 'react-smooth-scrollbar'
 
-export default function Dashboard({ reports, getMonth, getYear, getCountComputers }) {
+export default function Dashboard({ reports, getMonth, getYear, getCountComputers, getcountDowntime }) {
   return (
     <div className="flex flex-col w-full h-full px-10 py-10">
       <div className="flex flex-row justify-center w-full px-4 space-x-3">
@@ -42,7 +42,7 @@ export default function Dashboard({ reports, getMonth, getYear, getCountComputer
               <h1 className="font-light text-xs text-cool-gray">How many downtimes this day?</h1>
             </div>
             <div className="flex flex-col justify-center w-full px-16 py-3">
-              <h1 className="font-bold text-7xl text-scarlet">0</h1>
+              <h1 className="font-bold text-7xl text-scarlet">{ getcountDowntime._all }</h1>
             </div>
             <div className="absolute h-0 bottom-0 right-5 bg-cerulean">
               <DowntimeIcon />
@@ -62,7 +62,7 @@ export default function Dashboard({ reports, getMonth, getYear, getCountComputer
                 <h1 className="font-semibold text-xl">{ getMonth }&nbsp;{ getYear }</h1>
               </div>
             </div>
-            <div className={`mt-24 ${!reports.length == 0 ? 'hidden' : 'flex flex-row items-center justify-center w-full h-full'}`}>
+            <div className={`${!reports.length == 0 ? 'hidden' : 'flex flex-row justify-center pt-32 w-full h-full'}`}>
               <h1 className="font-bold text-5xl opacity-30">No tasks so far.</h1>
             </div>
             <Scrollbar

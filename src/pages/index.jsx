@@ -27,7 +27,7 @@ const date = new Date()
 const getMonth = monthNames[date.getMonth()]
 const getYear = date.getFullYear().toString()
 
-export default function Home({ reports, countComputers }) {
+export default function Home({ reports, countComputers, countDowntime }) {
   return (
     <>
       <Head>
@@ -59,7 +59,13 @@ export default function Home({ reports, countComputers }) {
               </Link>
             </div>
           </div>
-          <Dashboard reports={ reports } getMonth={ getMonth } getYear={ getYear } getCountComputers={ countComputers } />
+          <Dashboard
+            reports={ reports }
+            getCountComputers={ countComputers }
+            getcountDowntime={ countDowntime }
+            getMonth={ getMonth }
+            getYear={ getYear }
+          />
         </Scrollbar>
       </Layout>
     </>
@@ -67,6 +73,7 @@ export default function Home({ reports, countComputers }) {
 }
 
 export async function getServerSideProps() {
+  const today = new Date()
   const reports = await prisma.reports.findMany({
     where: {
       albumYear: getYear,
@@ -75,14 +82,24 @@ export async function getServerSideProps() {
   })
   const countComputers = await prisma.computers.count({
     select: {
-      _all: true,
-      id: true
+      _all: true
+    }
+  })
+  const countDowntime = await prisma.downtimeReport.count({
+    where: {
+      create_at: {
+        gte: new Date(today.toLocaleDateString("en-US")),
+      }
+    },
+    select: {
+      _all: true
     }
   })
   return {
     props: {
       reports,
-      countComputers
+      countComputers,
+      countDowntime
     }
   }
 }
