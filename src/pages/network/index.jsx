@@ -4,13 +4,12 @@ import Scrollbar from 'react-smooth-scrollbar'
 import DisplayNetworks from '~/components/DisplayNetworks'
 import ConfigureNetworks from '~/components/modals/networks/ConfigureNetworks'
 import ReportDowntime from '~/components/modals/networks/ReportDowntime'
-import moment from 'moment'
 import { useState, useEffect } from 'react'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-export default function Network({ networks, downtime }) {
+export default function Network({ networks, downtime, countDowntime }) {
 
   let [isOnline, setNetwork] = useState()
 
@@ -55,6 +54,7 @@ export default function Network({ networks, downtime }) {
           <DisplayNetworks
             networks={ networks }
             downtime={ downtime }
+            countDowntime={ countDowntime }
             networkStatus={ networkStatus }
           />
         </Scrollbar>
@@ -77,10 +77,21 @@ export async function getServerSideProps() {
       }
     }
   })
+  const countDowntime = await prisma.downtimeReport.count({
+    where: {
+      create_at: {
+        gte: new Date(today.toLocaleDateString("en-US")),
+      }
+    },
+    select: {
+      _all: true
+    }
+  })
   return {
     props: {
       networks,
-      downtime
+      downtime,
+      countDowntime
     }
   }
 }
