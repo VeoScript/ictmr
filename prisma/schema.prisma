@@ -75,5 +75,5 @@ model DowntimeReport {
   id Int @id  @default(autoincrement())
   isp String
   description String
-  create_at DateTime @default(now())
+  create_at String
 }
