@@ -11,6 +11,7 @@
     "@headlessui/react": "^1.2.0",
     "@prisma/client": "^2.24.1",
     "@tailwindcss/line-clamp": "^0.2.1",
+    "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.2.6",
     "jspdf": "^2.3.1",
     "jspdf-autotable": "^3.5.14",
