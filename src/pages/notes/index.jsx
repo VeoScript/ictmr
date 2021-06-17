@@ -35,7 +35,7 @@ export default function Notes({ notes }) {
           </div>
         </div>
         <div className={check[0] ? 'hidden' : 'flex flex-row items-center justify-center w-full h-full'}>
-          <h1 className="font-bold text-5xl opacity-10">No album yet.</h1>
+          <h1 className="font-bold text-5xl opacity-10">Create your first note.</h1>
         </div>
         <Scrollbar
           className="w-full h-full overflow-y-auto"
