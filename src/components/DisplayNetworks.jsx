@@ -55,11 +55,11 @@ export default function DisplayNetworks({ networks, networkStatus }) {
                 <span className="font-light text-sm text-cool-gray">Downtime</span><span className="font-bold text-2xl text-scarlet">5</span>
               </div>
               <div className="flex flex-col w-full">
-                <span className="font-normal text-lg text-cerulean">Globe</span>
+                <span className="font-normal text-lg text-cerulean">{ networks[0].internet_staffhouse }</span>
                 <span className="font-light text-sm text-cool-gray">Staffhouse Internet</span>
               </div>
               <div className="flex flex-col w-full">
-                <span className="font-normal text-lg text-cerulean">PLDT</span>
+                <span className="font-normal text-lg text-cerulean">{ networks[0].internet_office }</span>
                 <span className="font-light text-sm text-cool-gray">Office Internet</span>
               </div>
               <div className="flex flex-col w-full">
