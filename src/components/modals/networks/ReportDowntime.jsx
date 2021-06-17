@@ -6,7 +6,13 @@ import toast, { Toaster } from 'react-hot-toast'
 
 export default function ReportDowntime() {
 
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting }} = useForm()
+  const defaultValues = {
+    isp: '',
+    description: '',
+    create_at: new Date()
+  }
+
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting }} = useForm({ defaultValues })
 
   const router = useRouter()
 
@@ -19,8 +25,9 @@ export default function ReportDowntime() {
       method: 'POST',
       body: JSON.stringify(formData)
     })
-    toast.success('The downtime is reported successfully!', {
+    toast.success('Downtime Reported Successfully!', {
       style: {
+        marginTop: '-20px',
         borderRadius: '10px',
         background: '#C0E7C1',
         color: '#235C24',
@@ -46,7 +53,7 @@ export default function ReportDowntime() {
   return(
     <>
       <Toaster
-        position="bottom-center"
+        position="top-center"
         reverseOrder={true}
       />
       <div className="w-full max-w-[15rem]">
