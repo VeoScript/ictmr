@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Layout from '~/layout/default'
 import DisplayNetworks from '~/components/DisplayNetworks'
 import ConfigureNetworks from '~/components/modals/networks/ConfigureNetworks'
+import ReportDowntime from '~/components/modals/networks/ReportDowntime'
 import { useState, useEffect } from 'react'
 import { PrismaClient } from '@prisma/client'
 
@@ -41,8 +42,9 @@ export default function Network({ networks }) {
             <h1 className="font-bold text-4xl">Networks</h1>
             <h6 className="font-light text-sm text-cool-gray">Monitor your network and your internet connection</h6>
           </div>
-          <div className="flex flex-row justify-end w-full">
+          <div className="flex flex-row justify-end w-full space-x-2">
             <ConfigureNetworks networks={ networks } />
+            <ReportDowntime />
           </div>
         </div>       
         <DisplayNetworks networks={ networks } networkStatus={ networkStatus } />
