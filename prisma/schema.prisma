@@ -60,6 +60,7 @@ model Computers {
 
 model Networks {
   id Int @id  @default(autoincrement())
+  company_name String @default("SPMI")
   internet_main String
   internet_backup String
   internet_office String
