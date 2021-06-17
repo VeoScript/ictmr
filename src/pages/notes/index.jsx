@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout from '~/layout/default'
-import SearchBar from '~/components/search-functions/DashboardSearch'
+import SearchBar from '~/components/search-functions/NoteSearch'
 import AddNotes from '~/components/modals/notes/AddNotes'
 import DisplayNotes from '~/components/DisplayNotes'
 import Scrollbar from 'react-smooth-scrollbar'
@@ -28,7 +28,7 @@ export default function Notes({ notes }) {
             <h6 className="font-light text-sm text-cool-gray">Your Journal, Your Odyssey</h6>
           </div>
           <div className="flex flex-col w-full">
-            <SearchBar />
+            <SearchBar notes={ notes } />
           </div>
           <div className="flex flex-col items-end w-full mr-5">
             <AddNotes />
