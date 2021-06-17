@@ -1,7 +1,8 @@
 import Scrollbar from 'react-smooth-scrollbar'
 import Moment from 'react-moment'
+import DowntimeHistory from '~/components/modals/networks/DowntimeHistory'
 
-export default function DisplayNetworks({ networks, downtime, countDowntime, networkStatus }) {
+export default function DisplayNetworks({ networks, downtime, countDowntime, networkStatus, history }) {
   return (
     <div className="flex flex-col items-center w-full px-10 py-10 pb-20 space-y-5">
       <div className="flex flex-row w-full space-x-5">
@@ -76,6 +77,7 @@ export default function DisplayNetworks({ networks, downtime, countDowntime, net
       <div className="flex flex-col w-full h-full max-h-[30rem] px-5 py-5 bg-light-panther text-bright-white rounded-xl">
         <div className="head flex flex-row justify-between items-center w-full">
           <span className="font-bold text-xl">Downtime Report</span>
+          <DowntimeHistory history={ history } />
         </div>
         <Scrollbar
             damping={0.1}
