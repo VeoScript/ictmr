@@ -1,4 +1,7 @@
-export default function DisplayNetworks({ networks, networkStatus }) {
+import Scrollbar from 'react-smooth-scrollbar'
+import Moment from 'react-moment'
+
+export default function DisplayNetworks({ networks, downtime, networkStatus }) {
   return (
     <div className="flex flex-col items-center w-full px-10 py-10 pb-20 space-y-5">
       <div className="flex flex-row w-full space-x-5">
@@ -70,10 +73,35 @@ export default function DisplayNetworks({ networks, networkStatus }) {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-full px-5 py-5 bg-light-panther text-bright-white rounded-xl">
+      <div className="flex flex-col w-full h-full max-h-[30rem] px-5 py-5 bg-light-panther text-bright-white rounded-xl">
         <div className="head flex flex-row justify-between items-center w-full">
           <span className="font-bold text-xl">Downtime Report</span>
         </div>
+        <Scrollbar
+            damping={0.1}
+            thumbMinSize={20}
+          >
+            <div className="flex flex-col w-full h-full overflow-y-auto py-3 mt-3 space-y-2">
+              {downtime.map((({ isp, description, create_at }, i) => {
+                return (
+                  <div className="flex flex-row items-center justify-between w-full px-5 py-3 rounded-xl transition ease-in-out duration-300 hover:shadow-lg cursor-default bg-panther" key={i}>
+                    <div className="flex flex-col items-start w-full max-w-sm">
+                      <h1 className="font-normal text-base">{ isp }</h1>
+                      <h1 className="font-light text-xs text-cool-gray">Internet Service Provider</h1>
+                    </div>
+                    <div className="flex flex-col items-start w-full max-w-lg mr-2">
+                      <h1 className="font-normal text-sm">{ description }</h1>
+                      <h1 className="font-light text-xs text-cool-gray">Details and Reasons</h1>
+                    </div>
+                    <div className="flex flex-col items-start w-full max-w-lg">
+                      <h1 className="font-normal text-sm"><Moment date={ create_at } format='LLLL' /></h1>
+                      <h1 className="font-light text-xs text-cool-gray">Date & Time</h1>
+                    </div>
+                  </div>
+                )
+              }))}
+            </div>
+          </Scrollbar>
       </div>
     </div>
   )
