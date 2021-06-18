@@ -46,7 +46,6 @@ export default function About() {
               <h3 className="font-bold text-xl text-bright-white uppercase">System Colors</h3>
               <div className="flex flex-row w-full space-x-3">
                 {colors.map(({ color, code }, i) => {
-                  console.log(color)
                   return (
                     <div className="flex flex-col pantone-card w-36 h-full p-1 rounded-sm text-panther bg-white" key={i}>
                       <div className={`flex w-full h-28 ${color}`} />
