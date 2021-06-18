@@ -41,7 +41,7 @@ export default function About() {
             <div className="flex flex-col w-full space-y-3">
               <h1 className="font-bold text-2xl text-scarlet uppercase">Credits</h1>
               <span className="prose-md text-justify">
-                A big thanks to <a className="font-semibold hover:opacity-80" href="https://www.pantone.com/ph/en/" target="_blank">PANTONE</a> provides a universal language of color that enables color-critical decisions through every stage of the workflow for brands and manufacturers.
+                A big thanks to <a className="font-semibold hover:opacity-80" href="https://www.pantone.com/hk/en/" target="_blank">PANTONE</a> provides a universal language of color that enables color-critical decisions through every stage of the workflow for brands and manufacturers.
               </span>
               <h3 className="font-bold text-xl text-bright-white uppercase">System Colors</h3>
               <div className="flex flex-row w-full space-x-3">
@@ -61,7 +61,7 @@ export default function About() {
             <div className="flex flex-col w-full space-y-3">
               <h1 className="font-bold text-2xl text-scarlet uppercase">Developer</h1>
               <article className="prose-md text-justify">
-                Proudly created with 💕 by Jerome Villaruel (VEOSCRIPT).
+                Proudly created with 💕 by Jerome Villaruel (VEOSCRIPT). &copy; ICTMR 2021
               </article>
             </div>
           </div>
