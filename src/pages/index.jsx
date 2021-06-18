@@ -27,13 +27,13 @@ const date = new Date()
 const getMonth = monthNames[date.getMonth()]
 const getYear = date.getFullYear().toString()
 
-export default function Home({ reports, countComputers, countNotes, countDowntime }) {
+export default function Home({ reports, countComputers, countNotes, countDowntime, profile }) {
   return (
     <>
       <Head>
         <title>ICTMR</title>
       </Head>
-      <Layout>
+      <Layout profile={ profile }>
         <Scrollbar
           className="w-full h-full overflow-y-auto"
         >
@@ -46,13 +46,13 @@ export default function Home({ reports, countComputers, countNotes, countDowntim
               <h6 className="font-light text-sm text-cool-gray">ICT Monthly Report - Monitor your lifestyle based on your job description</h6>
             </div>
             <div className="flex flex-col w-full max-w-sm space-y-2 px-10">
-              <Link href="/">
+              <Link href="/profile">
                 <a className="flex flex-col w-full rounded-xl px-5 py-3 bg-light-panther transition ease-in-out duration-300 transform hover:scale-95">
                   <div className="flex flex-row items-center w-full space-x-3">
-                    <img className="w-10 h-10 object-cover rounded-full" src="https://avatars.githubusercontent.com/u/26340308?v=4" alt="avatar" />
-                    <div className="flex flex-col w-full">
-                      <h1 className="font-normal text-base">Jerome Villaruel</h1>
-                      <h6 className="font-light text-xs text-cool-gray">SPMI IT-Coordinator</h6>
+                    <img className="w-10 h-10 object-cover rounded-full bg-cool-gray" src={ profile.avatar } alt="avatar" />
+                    <div className="flex flex-col">
+                      <h1 className="font-normal text-base">{ profile.name }</h1>
+                      <h6 className="font-light text-xs text-cool-gray">{ profile.position }</h6>
                     </div>
                   </div>
                 </a>
@@ -101,12 +101,18 @@ export async function getServerSideProps() {
       _all: true
     }
   })
+  const profile = await prisma.user.findFirst({
+    where: {
+      id: 1
+    }
+  })
   return {
     props: {
       reports,
       countComputers,
       countNotes,
-      countDowntime
+      countDowntime,
+      profile
     }
   }
 }

@@ -3,14 +3,17 @@ import Layout from '~/layout/default'
 import Scrollbar from 'react-smooth-scrollbar'
 import Pantone from '~/components/icons/Pantone'
 import { colors } from '~/static/colors'
+import { PrismaClient } from '@prisma/client'
 
-export default function About() {
+const prisma = new PrismaClient()
+
+export default function About({ profile }) {
   return (
     <>
       <Head>
         <title>ICTMR | About</title>
       </Head>
-      <Layout>
+      <Layout profile={ profile }>
         <Scrollbar
           className="w-full h-full overflow-y-auto cursor-default"
         >
@@ -69,4 +72,17 @@ export default function About() {
       </Layout>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const profile = await prisma.user.findFirst({
+    where: {
+      id: 1
+    }
+  })
+  return {
+    props: {
+      profile
+    }
+  }
 }

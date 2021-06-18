@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { menu } from '~/static/links'
 
-export default function SideBar() {
+export default function SideBar({ profile }) {
   const router = useRouter()
   return (
     <div className="flex flex-col w-full h-full overflow-y-auto bg-light-panther">
@@ -23,9 +23,9 @@ export default function SideBar() {
         ))}
       </div>
       <div className="flex flex-col justify-center items-center w-full h-20">
-        <Link href="/">
+        <Link href="/profile">
           <a className="transition ease-in-out duration-300 transform hover:scale-90">
-            <img className="w-8 h-8 object-cover rounded-full" src="https://avatars.githubusercontent.com/u/26340308?v=4" alt="avatar" />
+            <img className="w-8 h-8 object-cover rounded-full bg-cool-gray" src={ profile.avatar } alt="avatar" />
           </a>
         </Link>
       </div>

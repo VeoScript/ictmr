@@ -8,13 +8,13 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-export default function Computers({ computers }) {
+export default function Computers({ computers, profile }) {
   return (
     <>
       <Head>
         <title>ICTMR | Computers</title>
       </Head>
-      <Layout>
+      <Layout profile={ profile }>
         <Scrollbar
           className="w-full h-full overflow-y-auto"
           damping={0.1}
@@ -47,9 +47,15 @@ export async function getServerSideProps() {
       }
     ]
   })
+  const profile = await prisma.user.findFirst({
+    where: {
+      id: 1
+    }
+  })
   return {
     props: {
-      computers
+      computers,
+      profile
     }
   }
 }

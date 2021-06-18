@@ -8,7 +8,7 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-export default function MonthlyReports({ getAlbumByYear }) {
+export default function MonthlyReports({ getAlbumByYear, profile }) {
 
   const check = getAlbumByYear.map((title) => {
     return {
@@ -21,7 +21,7 @@ export default function MonthlyReports({ getAlbumByYear }) {
       <Head>
         <title>ICTMR | Monthly Reports</title>
       </Head>
-      <Layout>
+      <Layout profile={ profile }>
         <div className="flex flex-row justify-between items-center w-full px-6 mt-14">
           <div className="flex flex-col items-start w-full px-10 space-y-1">
             <h1 className="font-bold text-4xl">Monthly Reports</h1>
@@ -66,10 +66,15 @@ export async function getServerSideProps() {
       date: true,
     }
   })
-
+  const profile = await prisma.user.findFirst({
+    where: {
+      id: 1
+    }
+  })
   return {
     props: {
-      getAlbumByYear
+      getAlbumByYear,
+      profile
     }
   }
 }
