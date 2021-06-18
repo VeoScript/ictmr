@@ -27,7 +27,7 @@ const date = new Date()
 const getMonth = monthNames[date.getMonth()]
 const getYear = date.getFullYear().toString()
 
-export default function Home({ reports, countComputers, countDowntime }) {
+export default function Home({ reports, countComputers, countNotes, countDowntime }) {
   return (
     <>
       <Head>
@@ -62,6 +62,7 @@ export default function Home({ reports, countComputers, countDowntime }) {
           <Dashboard
             reports={ reports }
             getCountComputers={ countComputers }
+            getCountNotes={ countNotes }
             getcountDowntime={ countDowntime }
             getMonth={ getMonth }
             getYear={ getYear }
@@ -85,6 +86,11 @@ export async function getServerSideProps() {
       _all: true
     }
   })
+  const countNotes = await prisma.notes.count({
+    select: {
+      _all: true
+    }
+  })
   const countDowntime = await prisma.downtimeReport.count({
     where: {
       create_at: {
@@ -99,6 +105,7 @@ export async function getServerSideProps() {
     props: {
       reports,
       countComputers,
+      countNotes,
       countDowntime
     }
   }
