@@ -8,7 +8,7 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-export default function Notes({ notes }) {
+export default function Notes({ notes, profile }) {
 
   const check = notes.map((title) => {
     return {
@@ -21,7 +21,7 @@ export default function Notes({ notes }) {
       <Head>
         <title>ICTMR | Notes</title>
       </Head>
-      <Layout>
+      <Layout profile={ profile }>
         <div className="flex flex-row justify-between items-center w-full px-6 mt-14">
           <div className="flex flex-col items-start w-full px-10 space-y-1">
             <h1 className="font-bold text-4xl">Notes</h1>
@@ -53,9 +53,15 @@ export default function Notes({ notes }) {
 
 export async function getServerSideProps() {
   const notes = await prisma.notes.findMany()
+  const profile = await prisma.user.findFirst({
+    where: {
+      id: 1
+    }
+  })
   return {
     props: {
-      notes
+      notes,
+      profile
     }
   }
 }

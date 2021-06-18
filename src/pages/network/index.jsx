@@ -9,7 +9,7 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-export default function Network({ networks, downtime, countDowntime, history }) {
+export default function Network({ networks, downtime, countDowntime, history, profile }) {
 
   let [isOnline, setNetwork] = useState()
 
@@ -37,7 +37,7 @@ export default function Network({ networks, downtime, countDowntime, history }) 
       <Head>
         <title>ICTMR | Network</title>
       </Head>
-      <Layout>
+      <Layout profile={ profile }>
         <Scrollbar
           className="w-full"
         >
@@ -88,12 +88,18 @@ export async function getServerSideProps() {
       _all: true
     }
   })
+  const profile = await prisma.user.findFirst({
+    where: {
+      id: 1
+    }
+  })
   const history = await prisma.downtimeReport.findMany()
   return {
     props: {
       networks,
       downtime,
       countDowntime,
+      profile,
       history
     }
   }

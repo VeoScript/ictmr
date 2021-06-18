@@ -10,7 +10,7 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-export default function ComputerID({ notes }) {
+export default function ComputerID({ notes, profile }) {
 
   if (!notes) {
     return <>
@@ -26,7 +26,7 @@ export default function ComputerID({ notes }) {
       <Head>
         <title>ICTMR | { notes.title } </title>
       </Head>
-      <Layout>
+      <Layout profile={ profile }>
         <Scrollbar
           className="w-full h-full"
         >
@@ -73,9 +73,15 @@ export async function getServerSideProps(context) {
       slug: slug
     }
   })
+  const profile = await prisma.user.findFirst({
+    where: {
+      id: 1
+    }
+  })
   return {
     props: {
-      notes
+      notes,
+      profile
     }
   }
 }

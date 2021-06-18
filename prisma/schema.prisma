@@ -12,9 +12,16 @@ generator client {
 
 model User {
   id Int @id @default(autoincrement())
-  avatar String
-  name String
-  position String
+  avatar String @default("https://i0.wp.com/i.pinimg.com/originals/e9/46/4b/e9464b65069040fbc455a509dbce373d.jpg")
+  name String @default("Default User")
+  position String @default("Web Developer")
+  email String
+  phone String
+  facebook String
+  twitter String
+  instagram String
+  tiktok String
+  youtube String
 }
 
 model YearAlbum {
