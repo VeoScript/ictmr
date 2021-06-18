@@ -44,12 +44,12 @@ export default function ComputerID({ notes }) {
             <div className="flex flex-row w-full h-[30rem] max-w-5xl">
               <img className="w-full h-full rounded-2xl shadow-2xl object-cover" src={ notes.image } alt="cover-photo" />
             </div>
-            <div className="flex flex-col items-center w-full max-w-5xl py-10 px-10 rounded-2xl space-y-3 bg-bright-white">
-              <article className="font-extralight text-xl prose lg:prose-xl">
+            <div className="flex flex-col w-full max-w-5xl py-10 px-10 rounded-2xl space-y-3 bg-bright-white">
+              <article className="font-sans text-xl prose lg:prose-xl">
                 <ReactMarkdown>{ notes.note }</ReactMarkdown>
               </article>
               <div className="flex flex-col items-end w-full mt-10">
-                <span className="font-light text-xl text-light-panther">{ notes.title }</span>
+                <span className="font-bold text-xl text-light-panther">{ notes.title }</span>
                 <span className="font-light text-base text-light-panther">
                   <Moment date={ notes.date } format="llll" />
                 </span>
