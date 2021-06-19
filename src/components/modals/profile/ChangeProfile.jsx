@@ -36,8 +36,8 @@ export default function ChangeProfile({ profile }) {
       method: 'PUT',
       body: JSON.stringify(formData)
     })
-    reset(defaultValues)
     refreshData()
+    reset()
     closeModal()
     return await response.json()
   }
@@ -45,12 +45,13 @@ export default function ChangeProfile({ profile }) {
   let [isOpen, setIsOpen] = useState(false)
 
   function closeModal() {
-    reset()
     setIsOpen(false)
+    reset(defaultValues)
   }
 
   function openModal() {
     setIsOpen(true)
+    reset(defaultValues)
   }
 
   return(
