@@ -32,6 +32,14 @@ export default function GeneratePDF({ reports, year, month }) {
     })
 
     doc.save(`Monthly Report - ${month.month} ${year.year}`)
+
+    toast.success('Downloaded Successfully!', {
+      style: {
+        borderRadius: '10px',
+        background: '#C0E7C1',
+        color: '#235C24',
+      }
+    })
   }
 
   return (
