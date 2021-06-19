@@ -72,6 +72,11 @@ export async function getServerSideProps() {
     }
   })
   const downtime = await prisma.downtimeReport.findMany({
+    orderBy: [
+      {
+        id: 'desc'
+      }
+    ],
     where: {
       create_at: {
         gte: new Date(today.toLocaleDateString("en-US")),
@@ -93,7 +98,13 @@ export async function getServerSideProps() {
       id: 1
     }
   })
-  const history = await prisma.downtimeReport.findMany()
+  const history = await prisma.downtimeReport.findMany({
+    orderBy: [
+      {
+        id: 'desc'
+      }
+    ]
+  })
   return {
     props: {
       networks,
