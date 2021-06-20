@@ -77,7 +77,7 @@ export default function AddComputer({ computers }) {
   return(
     <>
       <Toaster
-        position="bottom-center"
+        position="top-center"
         reverseOrder={true}
       />
       <div className="flex flex-row justify-end w-full space-x-1.5">
