@@ -16,9 +16,7 @@ export default function Computers({ computers, profile }) {
       </Head>
       <Layout profile={ profile }>
         <Scrollbar
-          className="w-full h-full overflow-y-auto"
-          damping={0.1}
-          thumbMinSize={20}
+          className="w-full h-full"
         >
           <div className="flex flex-row justify-between items-center w-full px-6 mt-14">
             <div className="flex flex-col items-start w-full px-10 space-y-1">
