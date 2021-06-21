@@ -76,6 +76,11 @@ export default function Home({ reports, countComputers, countNotes, countDowntim
 export async function getServerSideProps() {
   const today = new Date()
   const reports = await prisma.reports.findMany({
+    orderBy: [
+      {
+        id: 'desc'
+      }
+    ],
     where: {
       albumYear: getYear,
       albumMonth: getMonth
