@@ -80,10 +80,11 @@ export default function DowntimeHistory({ history }) {
                   </button>
                 </div>
                 <Scrollbar
+                  className="h-[20rem] mt-3"
                   damping={0.1}
                   thumbMinSize={20}
                 >
-                  <div className="flex flex-col w-full h-full overflow-y-auto py-3 mt-5 space-y-2">
+                  <div className="flex flex-col w-full space-y-2">
                     <div className={`${!history.length == 0 ? 'hidden' : 'flex flex-row justify-center items-center w-full'}`}>
                       <span className="font-bold text-xl text-bright-white opacity-20">No downtime report found.</span>
                     </div>
