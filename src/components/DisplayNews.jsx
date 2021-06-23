@@ -32,7 +32,7 @@ export default function DisplayNews({ news }) {
                       <span className="w-[5rem] font-bold text-sm text-center capitalize bg-scarlet text-panther px-3 py-1 rounded-full">{ section }</span>
                       <span className="font-normal text-xs text-cerulean">
                         <Link href={url}>
-                          <a className="flex flex-col w-full py-2">Read More</a>
+                          <a target="_blank" className="flex flex-col w-full py-2">Read More</a>
                         </Link>
                       </span>
                     </div>
