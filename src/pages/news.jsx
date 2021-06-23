@@ -18,8 +18,6 @@ export default function News({ profile, news }) {
     </>
   }
 
-  console.log(news.results)
-
   return (
     <>
       <Head>
