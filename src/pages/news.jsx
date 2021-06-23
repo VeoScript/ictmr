@@ -43,7 +43,7 @@ export default function News({ profile, news }) {
 }
 
 export async function getServerSideProps() {
-  const result = await fetch('https://api.nytimes.com/svc/topstories/v2/science.json?api-key=dzVkG8cQkVi4KsIlbG2PiRr1L6TMMUAq')
+  const result = await fetch(`https://api.nytimes.com/svc/topstories/v2/science.json?api-key=${process.env.NYT_API_KEY}`)
   const news = await result.json()
   const profile = await prisma.user.findFirst({
     where: {
