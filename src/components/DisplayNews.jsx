@@ -4,7 +4,7 @@ import Moment from 'react-moment'
 export default function DisplayNews({ news }) {
   return (
     <>
-      {news.articles.map((({ source, author, title, description, url, urlToImage, publishedAt, content }, i) => {
+      {news.articles.map((({ source, author, title, url, urlToImage, publishedAt, content }, i) => {
         return (
           <Link href={url}>
             <a target="_blank" className="flex flex-col h-[27rem] bg-light-panther text-bright-white mt-10 rounded-xl transition ease-in-out duration-300 transform hover:scale-95 hover:shadow-md" key={i}>
