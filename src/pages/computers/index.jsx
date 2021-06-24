@@ -41,7 +41,7 @@ export async function getServerSideProps() {
   const computers = await prisma.computers.findMany({
     orderBy: [
       {
-        computer_name: 'asc'
+        id: 'asc'
       }
     ]
   })
