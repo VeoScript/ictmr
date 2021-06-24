@@ -28,7 +28,7 @@ export default function News({ profile, news }) {
           <div className="flex flex-row justify-between items-center w-full px-16 mt-14">
             <div className="flex flex-col items-start w-full max-w-full space-y-1">
               <h1 className="font-bold text-4xl">News</h1>
-              <h6 className="font-light text-sm text-cool-gray">News update powered by The New York Times</h6>
+              <h6 className="font-light text-sm text-cool-gray">Philippines Top Headline News</h6>
             </div>
           </div>
           <div className="flex flex-col items-center w-full h-full">
@@ -43,7 +43,7 @@ export default function News({ profile, news }) {
 }
 
 export async function getServerSideProps() {
-  const result = await fetch(`https://api.nytimes.com/svc/topstories/v2/science.json?api-key=${process.env.NYT_API_KEY}`)
+  const result = await fetch(`https://newsapi.org/v2/top-headlines?country=ph&apiKey=${process.env.NEWS_API_KEY}`)
   const news = await result.json()
   const profile = await prisma.user.findFirst({
     where: {
