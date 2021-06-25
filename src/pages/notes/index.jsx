@@ -52,7 +52,13 @@ export default function Notes({ notes, profile }) {
 }
 
 export async function getServerSideProps() {
-  const notes = await prisma.notes.findMany()
+  const notes = await prisma.notes.findMany({
+    orderBy: [
+      {
+        id: 'desc'
+      }
+    ]
+  })
   const profile = await prisma.user.findFirst({
     where: {
       id: 1
