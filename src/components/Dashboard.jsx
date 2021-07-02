@@ -7,7 +7,7 @@ export default function Dashboard({ reports, getMonth, getYear, getCountComputer
   return (
     <div className="flex flex-col w-full h-full px-10 py-10">
       <div className="flex flex-row justify-center w-full px-4 space-x-3">
-        <div className="cards flex flex-col w-full max-w-sm h-48 rounded-xl bg-light-panther">
+        <div className="cards flex flex-col w-full h-48 rounded-xl bg-light-panther">
           <div className="relative w-full h-24">
             <div className="flex flex-col w-full px-5 py-5">
               <h1 className="font-semibold text-lg">Computer Monitoring</h1>
@@ -35,7 +35,7 @@ export default function Dashboard({ reports, getMonth, getYear, getCountComputer
             </div>
           </div>
         </div>
-        <div className="cards flex flex-col w-full max-w-sm h-48 rounded-xl bg-light-panther">
+        <div className="cards flex flex-col w-full h-48 rounded-xl bg-light-panther">
           <div className="relative w-full h-24">
             <div className="flex flex-col w-full px-5 py-5">
               <h1 className="font-semibold text-lg">Internet Downtime</h1>
