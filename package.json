@@ -13,6 +13,7 @@
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.2.6",
+    "framer-motion": "^4.1.17",
     "jspdf": "^2.3.1",
     "jspdf-autotable": "^3.5.14",
     "moment": "^2.29.1",
