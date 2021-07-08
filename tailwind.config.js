@@ -18,7 +18,7 @@ module.exports = {
         'scarlet': '#F8485E'         //PANTONE 1785 C
       },
       fontFamily: {
-        poppins: ['Poppins', ...defaultTheme.fontFamily.serif]
+        poppins: ['Poppins', ...defaultTheme.fontFamily.mono]
       }
     },
   },
